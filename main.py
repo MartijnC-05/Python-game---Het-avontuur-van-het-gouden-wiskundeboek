@@ -16,7 +16,7 @@ def title_screen_selections():
     stop_menu()
   while option.lower() not in ['start', 'help', 'stop']:
     print("vul aub een geldig antwoord in.")
-    options = input("> ")
+    option = input("> ")
     if option.lower() == ("start"):
       start_game()
     elif option.lower() == ("help"):
@@ -30,11 +30,31 @@ def help_menu_selections():
   option = input("> ")
   if option.lower() == ("menu"):
     title_screen()
+  elif option.lower() == ("stop"):
+      stop_menu()
+  elif option.lower() == ("quit"):
+      stop_menu()
+  elif option.lower() == ("q"):
+      stop_menu()
+  elif option.lower() == ("help"):
+      help_menu()
+  elif option.lower() == ("h"):
+      help_menu()
   while option.lower() not in ['menu']:
     print("vul aub een geldig antwoord in.")
-    options = input("> ")
+    option = input("> ")
     if option.lower() == ("menu"):
       title_screen()
+    elif option.lower() == ("stop"):
+      stop_menu()
+    elif option.lower() == ("quit"):
+      stop_menu()
+    elif option.lower() == ("q"):
+      stop_menu()
+    elif option.lower() == ("help"):
+      help_menu()
+    elif option.lower() == ("h"):
+      help_menu()
 
 ### Stop menu selections ###
 def stop_menu_selections():
@@ -46,7 +66,7 @@ def stop_menu_selections():
       title_screen()
   while option.lower() not in ['ja','nee']:
     print("vul aub een geldig antwoord in.")
-    options = input("> ")
+    option = input("> ")
     if option.lower() == ("ja"):
       os.system('clear')
       sys.exit
