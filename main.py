@@ -1,11 +1,9 @@
-import cmd
-import textwrap
 import sys
 import os
 import time
 import random 
 
-### Menu ### 
+### MENU SELECTIONS ### 
 def title_screen_selections(): 
   option = input("> ")
   if option.lower() == ("start"):
@@ -22,10 +20,9 @@ def title_screen_selections():
     elif option.lower() == ("help"):
       help_menu()
     elif option.lower() == ("stop"):
-      stop_menu()
-    
+      stop_menu() 
 
-### Help menu selections ###
+### HELP MENU SELECTIONS ###
 def help_menu_selections():
   option = input("> ")
   if option.lower() == ("menu"):
@@ -56,7 +53,7 @@ def help_menu_selections():
     elif option.lower() == ("h"):
       help_menu()
 
-### Stop menu selections ###
+### STOP MENU SELECTIONS ###
 def stop_menu_selections():
   option = input("> ")
   if option.lower() == ("ja"):
@@ -73,6 +70,37 @@ def stop_menu_selections():
     elif option.lower() == ("nee"):
       title_screen()
 
+### DEATH MENU SELECTIONS ###
+def death_menu_selections():
+  option = input ("> ")
+  if option.lower() == ("ja"):
+    start_game()
+  elif option.lower() == ("nee"):
+    stop_menu()
+  while option.lower() not in ['ja','nee']:
+    print("vul aub ja of nee in.")
+    option = input("> ")
+    if option.lower() == ("ja"):
+      start_game()
+    elif option.lower() == ("nee"):
+      stop_menu()
+
+def win_menu_selections():
+  option = input ("> ")
+  if option.lower() == ("ja"):
+    title_screen()
+  elif option.lower() == ("nee"):
+    stop_menu()
+  while option.lower() not in ['ja','nee']:
+    print("vul aub ja of nee in.")
+    option = input("> ")
+    if option.lower() == ("ja"):
+      title_screen()
+    elif option.lower() == ("nee"):
+      stop_menu()
+
+
+### MENU'S ###
 def title_screen():
   os.system('clear')
   print('############################################################')
@@ -130,6 +158,34 @@ def stop_menu():
   print('############################################################')
   stop_menu_selections()
 
+def death_menu():
+  os.system('clear')
+  print('############################################################')
+  print('#                    -=- Game Over -=-                     #')
+  print('############################################################')
+  print('#                                                          #')
+  print('# -=- Helaas, je hebt het niet gered. Game over            #')
+  print('# -=- Wil je het opnieuw proberen?                         #')
+  print('#                                                          #')
+  print('############################################################')
+  print('#         -=- gemaakt door Brendan en Martijn -=-          #')
+  print('############################################################')
+  death_menu_selections()
+
+def win_menu():
+  os.system('clear')
+  print('############################################################')
+  print('#                    -=- Gewonnen! -=-                     #')
+  print('############################################################')
+  print('#                                                          #')
+  print('# -=- Gefeliciteerd je hebt gewonnen!                      #')
+  print('# -=- Wil je het spel opnieuw spelen?                      #')
+  print('#                                                          #')
+  print('############################################################')
+  print('#         -=- gemaakt door Brendan en Martijn -=-          #')
+  print('############################################################')
+  win_menu_selections()
+
 def start_game():
   os.system('clear')
   print('############################################################')
@@ -143,8 +199,115 @@ def start_game():
   print('#         -=- gemaakt door Brendan en Martijn -=-          #')
   print('############################################################')
   player_name = input("> ")
+  player.name = player_name
+
+  format_string = "Hallo %s, leuk dat je dit spel speelt!"
+  print(format_string % player.name)
+
+### loading game ###
+  print("\nLoading:")
+  animation = ["10% [■□□□□□□□□□]","20% [■■□□□□□□□□]", "30% [■■■□□□□□□□]", "40% [■■■■□□□□□□]", "50% [■■■■■□□□□□]", "60% [■■■■■■□□□□]", "70% [■■■■■■■□□□]", "80% [■■■■■■■■□□]", "90% [■■■■■■■■■□]", "100%[■■■■■■■■■■]"]
+
+  for x in range(len(animation)):
+    time.sleep(0.2)
+    sys.stdout.write("\r" + animation[x % len(animation)])
+    sys.stdout.flush()
+
+  game("Schoolplein")
+
+### ROOMS ###
+rooms = {
+  'Schoolplein': {
+    "location" : "bij de ingang",
+    "description" : 'Daar sta je dan, het oude, verlaten gebouw wat ooit het Sint-Maartenscollege was. \nJe kijkt nog even naar de brief. Je moet toch echt hier zijn, het staat er, \nhandgeschreven door ene Jopie hemzelf. “Het gouden wiskundeboek ligt verborgen \nin de ruïnes van het Maartens.” ‘Waarom doe ik dit?’ vraag je jezelf af, \nmaar het is te laat om terug te gaan.',
+    "items" : "zijn geen items te vinden",
+    "directions" : "Je kunt: \nA. Door de fietsenstalling de school in \nB. Via de achteringang de school in \nC. of naar KJ, wat sinds de grote bruggeroorlogen van ‘21 niet meer hetzelfde is.",
+    "death" : 'nee',
+    "win" : 'nee',
+  },
+
+  'fietsenstalling' : {
+    "location" : "bij de fietsenstalling",
+    "description" : "Je loopt de trap op om de fietsenstalling binnen te gaan. Je vestigt je aandacht op \neen eenzame roze fiets, maar wordt door iemand anders aangesproken... \n‘Mensen? Hier?’ denk je, maar je wordt uit je gedachten getrokken door de persoon. \n‘Wat zoek je hier?’ Vraagt hij. Je kijkt naar zijn naambordje, \nhet is Andy, een van de conciërges.",  
+    "items" : "zijn geen items te vinden",
+    "directions" : "Wat zeg je tegen Andy? \nA: ‘Wat doe JIJ hier?’ \nB: ‘Ik kom mijn fiets ophalen, die roze daar.’ \nC: ‘Ene Jopie heeft me gestuurd.’",
+    "death" : 'nee',
+    "win" : 'nee',
+  },
+
+  'achteringang' : {
+    "location" : "bij de achteringang",
+    "description" : "Je loopt langs het gebouw en gaat het achterplein op. Er zitten alleen \n2 mensen heel dichtbij elkaar op een bankje. ‘Nou ja, moet kunnen toch?’ \ndenk je. Lichtelijk walgend loop je naar de deur toe. ‘Huh? Niet op slot? Apart.’ \nDenk je, maar je loopt snel naar binnen.",
+    "items" : "zijn geen items te vinden",
+    "directions": "Je kunt: \nalleen maar naar de hal",
+    "death" : 'nee',
+    "win" : 'ja',
+  },
+
+  'KJ plein' : {
+    "location" : "bij het KJ plein",
+    "description" : "Je draait je om om naar KJ te gaan, maar meteen betwijfel je of dat een goed idee is. \nAlleen vanaf de ruïnes kan je al zien dat het er wemelt van de bruggers, \nzij hadden de oorlog gewonnen, en sindsdien is het hun basis. \n‘Is het wel zo handig om te gaan?’ vraag je je af. Er komt een jochie op een step langs. \n‘Ik zou t niet doen vriend.’ Hij stept verder.",  
+    "items" : "zijn geen items te vinden",
+    "directions" : "Wat doe je?: \nA: ‘Ik moet niet al te veel afdwalen, ik sla KJ wel over’ \nB: ‘Hoe erg kan het zijn? Het zijn ook maar bruggers.’",
+    "death" : 'nee',
+    "win" : 'nee',
+  },
+
+}
   
+### PLAYER ###
+class player:
+    def __init__(self):
+        self.name = ''
+        self.health = 1 
+        #self.location = 'start' misschien nodig?
+player = player()
+
+### GAME ENGINE ###
+def game(room):
+  currentRoom = rooms[room]
+  location = currentRoom["location"]
+  description = currentRoom["description"]
+  items = currentRoom["items"]
+  directions = currentRoom["directions"]
+  player_death = currentRoom["death"]
+  player_win = currentRoom['win']
+
+  os.system('clear')
+  print('+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=')
+  print(f"Je bent {location}")
+  print('')
+  print(description)
+  print('')
+  print(f"Op deze locatie {items}")
+  print('')
+  print(directions)
+  print('+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=')
+  
+  
+  if player_death == ('ja'):
+    death_menu()
+  elif player_win == ('ja'):
+    win_menu()
+  else:
+    print('Wat wil je doen?')
+    nextRoom = input("> ")
+    game(nextRoom)
 
 
 
 title_screen()
+
+
+### NOG DOEN! ###
+# - mogelijke richtingen werkend maken
+# - alle kamers toevoegen
+# - mogelijkheden om te doen tonen
+# - mogelijkheid om terug te gaan na tonen help/ stop menu
+# - inventory tonen
+# - inventory item laten vallen
+# - health system
+# - altijd help of stop kunnen typen
+
+
+
