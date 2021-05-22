@@ -12,15 +12,9 @@ def title_screen_selections():
     help_menu()
   elif option.lower() == ("stop"):
     stop_menu()
-  while option.lower() not in ['start', 'help', 'stop']:
+  else:
     print("vul aub een geldig antwoord in.")
-    option = input("> ")
-    if option.lower() == ("start"):
-      start_game()
-    elif option.lower() == ("help"):
-      help_menu()
-    elif option.lower() == ("stop"):
-      stop_menu() 
+    title_screen_selections()
 
 ### HELP MENU SELECTIONS ###
 def help_menu_selections():
@@ -37,21 +31,9 @@ def help_menu_selections():
       help_menu()
   elif option.lower() == ("h"):
       help_menu()
-  while option.lower() not in ['menu']:
+  else:
     print("vul aub een geldig antwoord in.")
-    option = input("> ")
-    if option.lower() == ("menu"):
-      title_screen()
-    elif option.lower() == ("stop"):
-      stop_menu()
-    elif option.lower() == ("quit"):
-      stop_menu()
-    elif option.lower() == ("q"):
-      stop_menu()
-    elif option.lower() == ("help"):
-      help_menu()
-    elif option.lower() == ("h"):
-      help_menu()
+    help_menu_selections()
 
 ### STOP MENU SELECTIONS ###
 def stop_menu_selections():
@@ -61,14 +43,9 @@ def stop_menu_selections():
     sys.exit
   elif option.lower() == ("nee"):
       title_screen()
-  while option.lower() not in ['ja','nee']:
-    print("vul aub een geldig antwoord in.")
-    option = input("> ")
-    if option.lower() == ("ja"):
-      os.system('clear')
-      sys.exit
-    elif option.lower() == ("nee"):
-      title_screen()
+  else:
+    print("vul aub ja of nee in.")
+    stop_menu_selections()
 
 ### DEATH MENU SELECTIONS ###
 def death_menu_selections():
@@ -77,27 +54,20 @@ def death_menu_selections():
     start_game()
   elif option.lower() == ("nee"):
     stop_menu()
-  while option.lower() not in ['ja','nee']:
+  else:
     print("vul aub ja of nee in.")
-    option = input("> ")
-    if option.lower() == ("ja"):
-      start_game()
-    elif option.lower() == ("nee"):
-      stop_menu()
+    death_menu_selections()
 
+### WIN MENU SELECTIONS ###
 def win_menu_selections():
   option = input ("> ")
   if option.lower() == ("ja"):
     title_screen()
   elif option.lower() == ("nee"):
     stop_menu()
-  while option.lower() not in ['ja','nee']:
+  else:
     print("vul aub ja of nee in.")
-    option = input("> ")
-    if option.lower() == ("ja"):
-      title_screen()
-    elif option.lower() == ("nee"):
-      stop_menu()
+    win_menu_selections
 
 
 ### MENU'S ###
@@ -218,12 +188,13 @@ def start_game():
 ### ROOMS ###
 rooms = {
   'Schoolplein': {
-    "location" : "bij de ingang",
+    "location" : "op het Schoolplein",
     "description" : 'Daar sta je dan, het oude, verlaten gebouw wat ooit het Sint-Maartenscollege was. \nJe kijkt nog even naar de brief. Je moet toch echt hier zijn, het staat er, \nhandgeschreven door ene Jopie hemzelf. “Het gouden wiskundeboek ligt verborgen \nin de ruïnes van het Maartens.” ‘Waarom doe ik dit?’ vraag je jezelf af, \nmaar het is te laat om terug te gaan.',
     "items" : "zijn geen items te vinden",
     "directions" : "Je kunt: \nA. Door de fietsenstalling de school in \nB. Via de achteringang de school in \nC. of naar KJ, wat sinds de grote bruggeroorlogen van ‘21 niet meer hetzelfde is.",
     "death" : 'nee',
     "win" : 'nee',
+    "possible_directions" : "a, b, c"
   },
 
   'fietsenstalling' : {
@@ -231,7 +202,7 @@ rooms = {
     "description" : "Je loopt de trap op om de fietsenstalling binnen te gaan. Je vestigt je aandacht op \neen eenzame roze fiets, maar wordt door iemand anders aangesproken... \n‘Mensen? Hier?’ denk je, maar je wordt uit je gedachten getrokken door de persoon. \n‘Wat zoek je hier?’ Vraagt hij. Je kijkt naar zijn naambordje, \nhet is Andy, een van de conciërges.",  
     "items" : "zijn geen items te vinden",
     "directions" : "Wat zeg je tegen Andy? \nA: ‘Wat doe JIJ hier?’ \nB: ‘Ik kom mijn fiets ophalen, die roze daar.’ \nC: ‘Ene Jopie heeft me gestuurd.’",
-    "death" : 'nee',
+    "death" : 'ja',
     "win" : 'nee',
   },
 
@@ -282,18 +253,53 @@ def game(room):
   print(f"Op deze locatie {items}")
   print('')
   print(directions)
+  print('')
+  print('Mogelijke acties: ')
+  print('- d(directions), g(get item), i(invenory), h(help), q(quit) ')
   print('+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=')
-  
   
   if player_death == ('ja'):
     death_menu()
   elif player_win == ('ja'):
     win_menu()
   else:
-    print('Wat wil je doen?')
-    nextRoom = input("> ")
-    game(nextRoom)
+    options()
+    
 
+### OPTIONS ###
+def options():
+  print('Wat wil je doen?')
+  option = input('> ')
+  if option.lower() == ('quit'):
+    stop_menu()
+  elif option.lower() == ('q'):
+    stop_menu()
+  elif option.lower() == ('help'):
+    help_menu()
+  elif option.lower() == ('h'):
+    help_menu()
+  elif option.lower() == ('inventory'):
+    print('dit wordt de inventory')
+    options()
+  elif option.lower() == ('i'):
+    print('dit wordt de inventory')
+    options()
+  elif option.lower() == ('get'):
+    print('dit wordt de item get function')
+    options()
+  elif option.lower() == ('g'):
+    print('dit wordt de item get function')
+    options()
+  elif option.lower() == ('directions'):
+    print('dit wordt de directions function')
+    options()
+  elif option.lower() == ('d'):
+    print('dit wordt de directions function')
+    options()
+  else:
+    print('vul aub een geldig antwoord in')
+    options()
+  
 
 
 title_screen()
@@ -302,12 +308,7 @@ title_screen()
 ### NOG DOEN! ###
 # - mogelijke richtingen werkend maken
 # - alle kamers toevoegen
-# - mogelijkheden om te doen tonen
 # - mogelijkheid om terug te gaan na tonen help/ stop menu
 # - inventory tonen
 # - inventory item laten vallen
 # - health system
-# - altijd help of stop kunnen typen
-
-
-
