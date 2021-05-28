@@ -1,7 +1,7 @@
 import sys
 import os
 import time
-import random 
+from time import sleep
 
 ### MENU SELECTIONS ### 
 def title_screen_selections(): 
@@ -248,14 +248,22 @@ def game(room):
   print('+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=')
   print(f"Je bent {location}")
   print('')
-  print(description)
+
+  for char in description:
+    sleep(0.03)
+    print(char, end='', flush=True)
+
   print('')
-  print(f"Op deze locatie {items}")
+  print(f"\nOp deze locatie {items}")
   print('')
-  print(directions)
+  
+  for char in directions:
+    sleep(0.05)
+    print(char, end='', flush=True)
+
   print('')
-  print('Mogelijke acties: ')
-  print('- d(directions), g(get item), i(invenory), h(help), q(quit) ')
+  print('\nMogelijke acties: ')
+  print('- d(directions), g(get item), i(inventory), h(help), q(quit) ')
   print('+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=')
   
   if player_death == ('ja'):
