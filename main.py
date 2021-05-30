@@ -8,7 +8,7 @@ class player:
     def __init__(self):
         self.name = ''
         self.health = 1 
-        self.location = 'Schoolplein'
+        self.location = 'schoolplein'
 player = player()
 
 ### ROOMS ###
@@ -24,8 +24,7 @@ C = 'c'
 D = 'd'
 
 rooms = {
-  'Schoolplein': {
-    LOCATION : "op het Schoolplein",
+  'schoolplein': {
     DESCRIPTION: 'Daar sta je dan, het oude, verlaten gebouw wat ooit het Sint-Maartenscollege was. \nJe kijkt nog even naar de brief. Je moet toch echt hier zijn, het staat er, \nhandgeschreven door ene Jopie hemzelf. “Het gouden wiskundeboek ligt verborgen \nin de ruïnes van het Maartens.” ‘Waarom doe ik dit?’ vraag je jezelf af, \nmaar het is te laat om terug te gaan.',
     ITEMS : "zijn geen items te vinden",
     DIRECTIONS : "Je kunt: \nA. Door de fietsenstalling de school in \nB. Via de achteringang de school in \nC. of naar KJ, wat sinds de grote bruggeroorlogen van ‘21 niet meer hetzelfde is.",
@@ -37,7 +36,6 @@ rooms = {
   },
 
   'fietsenstalling' : {
-    LOCATION : "bij de fietsenstalling",
     DESCRIPTION : "Je loopt de trap op om de fietsenstalling binnen te gaan. Je vestigt je aandacht op \neen eenzame roze fiets, maar wordt door iemand anders aangesproken... \n‘Mensen? Hier?’ denk je, maar je wordt uit je gedachten getrokken door de persoon. \n‘Wat zoek je hier?’ Vraagt hij. Je kijkt naar zijn naambordje, \nhet is Andy, een van de conciërges.",  
     ITEMS : "zijn geen items te vinden",
     DIRECTIONS : "Wat zeg je tegen Andy? \nA: ‘Wat doe JIJ hier?’ \nB: ‘Ik kom mijn fiets ophalen, die roze daar.’ \nC: ‘Ene Jopie heeft me gestuurd.’",
@@ -46,21 +44,50 @@ rooms = {
   },
 
   'achteringang' : {
-    LOCATION : "bij de achteringang",
     DESCRIPTION : "Je loopt langs het gebouw en gaat het achterplein op. Er zitten alleen \n2 mensen heel dichtbij elkaar op een bankje. ‘Nou ja, moet kunnen toch?’ \ndenk je. Lichtelijk walgend loop je naar de deur toe. ‘Huh? Niet op slot? Apart.’ \nDenk je, maar je loopt snel naar binnen.",
     ITEMS : "zijn geen items te vinden",
     DIRECTIONS: "Je kunt: \nA: alleen maar naar de hal",
     DEATH : 'nee',
     WIN : 'nee',
+    A : 'hal',
   },
 
   'KJ plein' : {
-    LOCATION : "bij het KJ plein",
     DESCRIPTION : "Je draait je om om naar KJ te gaan, maar meteen betwijfel je of dat een goed idee is. \nAlleen vanaf de ruïnes kan je al zien dat het er wemelt van de bruggers, \nzij hadden de oorlog gewonnen, en sindsdien is het hun basis. \n‘Is het wel zo handig om te gaan?’ vraag je je af. Er komt een jochie op een step langs. \n‘Ik zou t niet doen vriend.’ Hij stept verder.",  
     ITEMS : "zijn geen items te vinden",
     DIRECTIONS : "Wat doe je?: \nA: ‘Ik moet niet al te veel afdwalen, ik sla KJ wel over’ \nB: ‘Hoe erg kan het zijn? Het zijn ook maar bruggers.’",
     DEATH : 'nee',
     WIN : 'nee',
+    A : 'schoolplein',
+    B : 'KJ centrum'
+  },
+
+  'KJ centrum' : {
+    DESCRIPTION : "Je zet 1 stap in het centrum, en wordt meteen overvallen door de bruggers. \nJe doet je best om terug te vechten, maar voor elke brugger die je neerslaat \nkomen er 3 meer uit de Albert Heijn lopen. Na een langdurige strijd overleef je het niet.",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+  },
+
+  'hal' : {
+    DESCRIPTION : "Je bent nu binnen. Je staat in de hal en kijkt om je heen, \nje slikt je angst weg en besluit waar je heen gaat: De trap op richting de eerste verdieping, \nnaar de aula, naar de vleugel NT en G, of terug naar buiten.",  
+    ITEMS : "zijn geen items te vinden",
+    DIRECTIONS : "Je kunt naar: \nA: De trap \nB: De aula \nC: De vleugel NT en G \nD: Naar buiten",
+    DEATH : 'nee',
+    WIN : 'nee',
+  },
+
+  '' : {
+    DESCRIPTION : "",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : '',
+    WIN : '',
+    A : '',
+    B : '',
+    C : '',
+    D : '',
   },
 
 }
@@ -255,22 +282,28 @@ def print_location():
   print('+=' * 45)
   print(player.location.upper())
   print('\n' + rooms[player.location][DESCRIPTION])
-  print('\n' + 'op deze locatie ' + rooms[player.location][ITEMS])
-  print('\n' + rooms[player.location][DIRECTIONS])
-  print('\n Mogelijke acties: ')
-  print('- d(directions), g(get item), i(inventory), h(help), q(quit) ')
-  print('+=' * 45)
+  
 
   if rooms[player.location][DEATH] == ('ja'):
+    print('\n' + '+=' * 45)
+    print('Game over')
+    time.sleep(10)
     death_menu()
   elif rooms[player.location][WIN] == ('ja'):
+    print('\n' + '+=' * 45)
+    time.sleep(10)
     win_menu()
   else:
+    print('\n' + 'Op deze locatie ' + rooms[player.location][ITEMS])
+    print('\n' + rooms[player.location][DIRECTIONS])
+    print('+=' * 45)
     options()
 
 ### OPTIONS ###
 def options():
-  print('Wat wil je doen?')
+  print('Mogelijke acties: ')
+  print('- d(directions), g(get item), i(inventory), h(help), q(quit) ')
+  print('\nWat wil je doen?')
   option = input('> ')
   if option.lower() == ('quit'):
     stop_menu()
