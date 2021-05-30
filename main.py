@@ -24,6 +24,7 @@ C = 'c'
 D = 'd'
 
 rooms = {
+  #level 1
   'schoolplein': {
     DESCRIPTION: 'Daar sta je dan, het oude, verlaten gebouw wat ooit het Sint-Maartenscollege was. \nJe kijkt nog even naar de brief. Je moet toch echt hier zijn, het staat er, \nhandgeschreven door ene Jopie hemzelf. “Het gouden wiskundeboek ligt verborgen \nin de ruïnes van het Maartens.” ‘Waarom doe ik dit?’ vraag je jezelf af, \nmaar het is te laat om terug te gaan.',
     ITEMS : "zijn geen items te vinden",
@@ -41,6 +42,35 @@ rooms = {
     DIRECTIONS : "Wat zeg je tegen Andy? \nA: ‘Wat doe JIJ hier?’ \nB: ‘Ik kom mijn fiets ophalen, die roze daar.’ \nC: ‘Ene Jopie heeft me gestuurd.’",
     DEATH : 'nee',
     WIN : 'nee',
+    A : 'Wat doe JIJ hier?',
+    B : 'Ik kom mijn fiets ophalen, die roze daar',
+    C : 'Ene Jopie heeft me gestuurd',
+  },
+
+  'Wat doe JIJ hier?' : {
+    DESCRIPTION : "Andy stelt deze grap niet op prijs. Hij stuurt je meteen de fietsenstalling uit. \n“En niet meer terugkomen!” Schreeuwt hij je nog na. \nNou, daar gaan je kansen om binnen te komen.",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+  },
+
+  'Ik kom mijn fiets ophalen, die roze daar' : {
+    DESCRIPTION : "“Eindelijk, de eigenaar!” Het lijkt haast alsof Andy blij is dat die fiets eindelijk wordt opgehaald. \nHij haalt de sleutels uit zijn broekzak en overhandigt ze aan je. \nHet is misschien niet echt jouw fiets, maar hij is zo blij, dat ga je toch niet verpesten? ",  
+    ITEMS : "is een fiets te vinden",
+    DIRECTIONS : "Je kunt: \nA: alleen maar naar de hal",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'hal'
+  },
+
+  'Ene Jopie heeft me gestuurd': {
+    DESCRIPTION : "“Die naam heb ik al in tijden niet gehoord zeg. Kom verder, snel, voordat je gesnapt wordt.” \nJe vraagt je af wie jou zal snappen, maar goed, je volgt Andy snel.",  
+    ITEMS : "",
+    DIRECTIONS : "Je kunt: \nA: alleen maar naar de hal",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'hal',
   },
 
   'achteringang' : {
@@ -70,12 +100,85 @@ rooms = {
     WIN : 'nee',
   },
 
+  #level 2
   'hal' : {
     DESCRIPTION : "Je bent nu binnen. Je staat in de hal en kijkt om je heen, \nje slikt je angst weg en besluit waar je heen gaat: De trap op richting de eerste verdieping, \nnaar de aula, naar de vleugel NT en G, of terug naar buiten.",  
     ITEMS : "zijn geen items te vinden",
     DIRECTIONS : "Je kunt naar: \nA: De trap \nB: De aula \nC: De vleugel NT en G \nD: Naar buiten",
     DEATH : 'nee',
     WIN : 'nee',
+    A : 'trap',
+    B : 'aula',
+    C : 'vleugel NT en G',
+    D : 'schoolplein',
+  },
+
+  'trap' : {
+    DESCRIPTION : "Er zijn twee trappen die je kan nemen: de trap die richting lokalen gaat, \nof de trap die richting de mediatheek gaat.",  
+    ITEMS : "zijn geen items te vinden",
+    DIRECTIONS : "Welke trap neem je? \nA: Naar de lokalen \nB: Naar de mediatheek",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'lokalen',
+    B : 'mediatheek',
+  },
+
+  'mediatheek' : {
+    DESCRIPTION : "Je gaat de trap op richting de mediatheek. Je loopt nog langs lokaal 126, \nwaar een man met donkerblond haar achter een computer zit te klooien met google meet. \n‘Rare eend.’ Denk je. Je loopt door naar de mediatheek, waar je een zacht geluid \nvan een printer hoort. Het geluid wordt luider en luider, \ntotdat je de mediatheek zelf binnenloopt. Er is een enkele vrouw aanwezig, \nbezig met de printer. Ze draait zich direct om bij je eerste stap. \n‘Dus jij wilt hulp met printen?’ Vraagt ze. Je kan geen antwoord geven \nvoordat ze je al naar de printer heeft geleid. Vervolgens moet je printen \ntotdat je je laatste adem hebt gegeven.",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+    },  
+
+  'aula' : {
+    DESCRIPTION : "Je loopt de aula binnen. Het is helemaal leeg, behalve 2 oude mannen \ndie bingo zitten te spelen. ‘Ach ja, beetje bingo moet kunnen.’ Denk je. \nJe kan de oude mannen benaderen of naar de kantine toe.",  
+    ITEMS : "zijn geen items te vinden",
+    DIRECTIONS : "Wat ga je doen? \nA: Naar de kantine \nB: Benader de oude mannen \nC: terug naar de hal",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'kantine',
+    B : 'oude mannen',
+    C : 'hal'
+  },
+
+  'kantine' : {
+    DESCRIPTION : "Het is misschien een doodlopend einde, maar je kan toch een beetje rondkijken \nzonder lastig te worden gevallen. Er zijn een paar dingen die je opvallen, \nzoals een hendeltje van de kapotte panini machine, \nen een heerlijke wafel die bijna aan de datum is.",  
+    ITEMS : "zijn een hendeltje en een wafel te vinden",
+    DIRECTIONS : "je kunt: \nA: alleen terug naar de aula",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'aula',
+  },
+
+  'oude mannen' : {
+    DESCRIPTION : "Je loopt naar de oude mannen toe. Op het moment dat je aan komt lopen, \nklinkt er een krak. “Alle bingoballen nog aan toe!” Roept een van de twee uit. \nJe ziet dat de hendel van het bingorad is afgebroken. Een van de twee ziet je aan komen lopen, \nen begint meteen met praten. “Zeg, makker, jij daar, kun je ons even helpen?” \nJe hebt niet echt een keuze, dus je knikt ja. “Komt dat eens goed uit zeg! \nWij zijn Ome Henk en Ome Willem, en we houden van bingo. \nZoals je kunt zien hebben we een nieuw hendeltje nodig, kan je die voor ons zoeken?” \nJe knikt weer, je kan natuurlijk geen nee zeggen tegen zulke aardige mensen.",  
+    ITEMS : "zijn geen items te vinden",
+    DIRECTIONS : "je kunt: \nA: alleen naar de aula toe",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'aula',
+  },
+
+  'vleugel NT en G': {
+    DESCRIPTION : "Je loopt richting de vleugel van NT en G, maar voordat je er goed kan komen \nhoor je een explosie. Er komen 2 andere mensen uit een lokaal gerend, \ngevolgd door een derde man met een honkbalknuppel. De gewapende gek keert zich tot jou. \n‘Ga jij eens even ergens anders kletsen.’ Zegt hij, met een simpelweg enge glimlach op zijn gezicht. \nJe probeert weg te rennen, maar voordat je het weet heeft hij je knieschijven ingetimmerd. \nJe overleeft het niet. ",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+  },
+
+  #level 3
+  'lokalen' : {
+    DESCRIPTION : "Je bent nu de trap opgegaan richting de lokalen. Je kan verder op de eerste verdieping, \nnaar de tweede verdieping of helemaal naar de derde verdieping. \nJe kan natuurlijk ook weer terug naar beneden.",  
+    ITEMS : "zijn geen items te vinden",
+    DIRECTIONS : "Je kunt naar: \nA: De eerste verdieping \nB: De tweede verdieping \nC: De derde verdieping \nD:Naar beneden",
+    DEATH : 'nee',
+    WIN : 'win',
+    A : 'verdieping 1',
+    B : 'verdieping 2',
+    C : 'verdieping 3',
+    D : 'hal',
   },
 
   '' : {
@@ -158,7 +261,7 @@ def game_stop_menu_selections():
     print_location()
   else:
     print("vul aub ja of nee in.")
-    stop_menu_selections()
+    game_stop_menu_selections()
 
 ### DEATH MENU SELECTIONS ###
 def death_menu_selections():
@@ -431,5 +534,7 @@ title_screen()
 # - alle kamers toevoegen
 # - inventory tonen
 # - inventory item laten vallen
+# - items toevoegen
 # - item oppakken
-# - health system
+# - health system???
+# - opnieuw spelen weer in start kamer starten
