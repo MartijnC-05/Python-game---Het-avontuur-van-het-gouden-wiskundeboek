@@ -125,6 +125,17 @@ def help_menu_selections():
     print("vul aub een geldig antwoord in.")
     help_menu_selections()
 
+### GAME HELP MENU SELECTIONS ###
+def game_help_menu_selections():
+  option = input("> ")
+  if option.lower() == ("back"):
+    print_location()
+  elif option.lower() == ("b"):
+    print_location()
+  else:
+    print("vul aub een geldig antwoord in.")
+    game_help_menu_selections()
+
 ### STOP MENU SELECTIONS ###
 def stop_menu_selections():
   option = input("> ")
@@ -133,6 +144,18 @@ def stop_menu_selections():
     sys.exit
   elif option.lower() == ("nee"):
       title_screen()
+  else:
+    print("vul aub ja of nee in.")
+    stop_menu_selections()
+
+### GAME STOP MENU SELECTIONS ###
+def game_stop_menu_selections():
+  option = input("> ")
+  if option.lower() == ("ja"):
+    os.system('clear')
+    sys.exit
+  elif option.lower() == ("nee"):
+    print_location()
   else:
     print("vul aub ja of nee in.")
     stop_menu_selections()
@@ -204,6 +227,32 @@ def help_menu():
   print('############################################################')
   help_menu_selections() 
 
+def game_help_menu():
+  os.system('clear')
+  print('############################################################')
+  print('#                      -=- Help -=-                        #')
+  print('############################################################')
+  print('#                                                          #')
+  print('# -=- Als er een optie komt om ergens heen te gaan         #')
+  print('#        typ dan de letter in die bij die optie hoort      #')
+  print('#                                                          #')
+  print('# -=- Als je de mogelijkheid hebt om een item op te pakken #')
+  print('#        typ dan g (get) om het item op te pakken          #')
+  print('#        typ d (drop) om het item te laten vallen          #')
+  print('#        en typ i (inventory) om je inventory te bekijken  #')
+  print('#                                                          #')
+  print('# -=- Je kunt altijd tijdens het spelen q (quit)           #')
+  print('#        en h (help) typen om te stoppen                   #')
+  print('#        of dit menu opnieuw te tonen                      #')
+  print('#                                                          #')
+  print('# -=- Veel plezier met het spelen!                         #')
+  print('#                                                          #')
+  print('#        Typ b(back) om terug naar het menu te gaan        #')
+  print('############################################################')
+  print('#         -=- gemaakt door Brendan en Martijn -=-          #')
+  print('############################################################')
+  game_help_menu_selections() 
+
 def stop_menu():
   os.system('clear')
   print('############################################################')
@@ -217,6 +266,20 @@ def stop_menu():
   print('#         -=- gemaakt door Brendan en Martijn -=-          #')
   print('############################################################')
   stop_menu_selections()
+
+def game_stop_menu():
+  os.system('clear')
+  print('############################################################')
+  print('#                      -=- Stop -=-                        #')
+  print('############################################################')
+  print('#                                                          #')
+  print('# -=- Weet je zeker dat je wilt stoppen?                   #')
+  print('# -=- Ja/ Nee                                              #')
+  print('#                                                          #')
+  print('############################################################')
+  print('#         -=- gemaakt door Brendan en Martijn -=-          #')
+  print('############################################################')
+  game_stop_menu_selections()
 
 def death_menu():
   os.system('clear')
@@ -306,13 +369,13 @@ def options():
   print('\nWat wil je doen?')
   option = input('> ')
   if option.lower() == ('quit'):
-    stop_menu()
+    game_stop_menu()
   elif option.lower() == ('q'):
-    stop_menu()
+    game_stop_menu()
   elif option.lower() == ('help'):
-    help_menu()
+    game_help_menu()
   elif option.lower() == ('h'):
-    help_menu()
+    game_help_menu()
   elif option.lower() == ('inventory'):
     print('dit wordt de inventory')
     options()
@@ -366,12 +429,7 @@ title_screen()
 
 ### NOG DOEN! ###
 # - alle kamers toevoegen
-# - mogelijkheid om terug te gaan na tonen help/ stop menu
 # - inventory tonen
 # - inventory item laten vallen
 # - item oppakken
 # - health system
-
-
-
-
