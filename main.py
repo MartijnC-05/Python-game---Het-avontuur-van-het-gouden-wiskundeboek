@@ -265,9 +265,10 @@ def game_stop_menu_selections():
 
 ### DEATH MENU SELECTIONS ###
 def death_menu_selections():
+  player.location='schoolplein'
   option = input ("> ")
   if option.lower() == ("ja"):
-    start_game()
+    print_location()
   elif option.lower() == ("nee"):
     stop_menu()
   else:
@@ -276,6 +277,7 @@ def death_menu_selections():
 
 ### WIN MENU SELECTIONS ###
 def win_menu_selections():
+  player.location='schoolplein'
   option = input ("> ")
   if option.lower() == ("ja"):
     title_screen()
@@ -537,4 +539,4 @@ title_screen()
 # - items toevoegen
 # - item oppakken
 # - health system???
-# - opnieuw spelen weer in start kamer starten
+# - als optie wel in abcd zit maar niet mogelijk is komt er een error
