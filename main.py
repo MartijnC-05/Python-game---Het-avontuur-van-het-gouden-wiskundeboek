@@ -33,7 +33,7 @@ rooms = {
     WIN : 'nee',
     A : 'fietsenstalling',
     B : 'achteringang',
-    C : 'KJ plein'
+    C : 'KJ plein',
   },
 
   'fietsenstalling' : {
@@ -287,7 +287,6 @@ def win_menu_selections():
     print("vul aub ja of nee in.")
     win_menu_selections
 
-
 ### MENU'S ###
 def title_screen():
   os.system('clear')
@@ -470,7 +469,7 @@ def print_location():
 ### OPTIONS ###
 def options():
   print('Mogelijke acties: ')
-  print('- d(directions), g(get item), i(inventory), h(help), q(quit) ')
+  print('- a, b, c, d, g(get item), i(inventory), h(help), q(quit) ')
   print('\nWat wil je doen?')
   option = input('> ')
   if option.lower() == ('quit'):
@@ -493,19 +492,7 @@ def options():
   elif option.lower() == ('g'):
     print('dit wordt de item get function')
     options()
-  elif option.lower() == ('directions'):
-    directions()
-  elif option.lower() == ('d'):
-    directions()
-  else:
-    print('vul aub een geldig antwoord in')
-    options()
-
-def directions():
-  print ('Waar wil je heen gaan?')
-  option = input('> ')
-	
-  if option.lower() == 'a':
+  elif option.lower() == 'a':
     move_dest = rooms[player.location][A]
     move_player(move_dest)
   elif option.lower() == 'b':
@@ -518,15 +505,13 @@ def directions():
     move_dest = rooms[player.location][D]
     move_player(move_dest)
   else:
-    print("Vul aub alleen a, b, c of d in.")
-    directions()
+    print('vul aub een geldig antwoord in')
+    options()
 
 def move_player(move_dest):
 	player.location = move_dest
 	print_location()
 
-
-  
 
 
 title_screen()
@@ -538,5 +523,6 @@ title_screen()
 # - inventory item laten vallen
 # - items toevoegen
 # - item oppakken
+# - item nodig om verder te komen
 # - health system???
 # - als optie wel in abcd zit maar niet mogelijk is komt er een error
