@@ -10,7 +10,7 @@ class player:
         self.health = 1 
         self.location = 'schoolplein'
         self.inventory = ['']
-        self.animations = 'lang'
+        self.animations = 'kort'
 player = player()
 
 ### ROOMS ###
@@ -205,6 +205,30 @@ rooms = {
     D : 'hal',
   },
 
+  'verdieping 1' : {
+    DESCRIPTION : "Je staat nu op de eerste verdieping. Je ziet 2 mensen in een lokaal zitten, en in de verte hoor je gestamp. Je kan de mensen benaderen, of verder naar het gestamp kijken.",  
+    ITEMS : "",
+    DIRECTIONS : "Wat ga je doen?: \nA: Benader de mensen \nB: Ga naar het gestamp",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'de mensen',
+    B : 'het gestamp',
+    C : 'verdieping 1',
+    D : 'verdieping 1',
+  },
+
+   'de mensen' : {
+    DESCRIPTION : "Je nadert de deuropening, en hoort een zacht gebabbel over God, Jezus en de 		Heilige Geest, amen. Je stapt het lokaal in, en de vrouw kijkt direct jouw kant op. 		'Verdwijn, brugger! U bent hier niet welkom!'' Ze duwt een kruis in je gezicht. 'De 		kracht van God houdt u tegen!'' Je wordt teruggebracht naar de hal.",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : '',
+    WIN : '',
+    A : '',
+    B : '',
+    C : '',
+    D : '',
+  },
+
   '' : {
     DESCRIPTION : "",  
     ITEMS : "",
@@ -291,6 +315,30 @@ def settings_options():
   else:
     print('vul aub een geldig antwoord in')
     settings_options()
+
+### GAME SETTINGS OPTIONS ####
+def game_settings_options():
+  option = input('> ')
+  if option.lower() == ('k'):
+    player.animations = 'kort'
+    game_settings_menu()
+  elif option.lower() == ('kort'):
+    player.animations = 'kort'
+    game_settings_menu()
+  elif option.lower() == ('l'):
+    player.animations = 'lang'
+    game_settings_menu()
+  elif option.lower() == ('lang'):
+    player.animations = 'lang'
+    game_settings_menu()
+  elif option.lower() == ('back'):
+    print_location()
+  elif option.lower() == ('b'):
+    print_location()
+  else:
+    print('vul aub een geldig antwoord in')
+    game_settings_options()
+
 
 ### STOP MENU SELECTIONS ###
 def stop_menu_selections():
@@ -401,6 +449,23 @@ def settings_menu():
   print('#         -=- gemaakt door Brendan en Martijn -=-          #')
   print('############################################################')
   settings_options()
+
+def game_settings_menu():
+  os.system('clear')
+  print('############################################################')
+  print('#                    -=- Settings -=-                      #')
+  print('############################################################')
+  print('#                                                          #')
+  print('# -=- Animations                                           #')
+  print('#                                                          #')
+  print('# -=- Op dit moment zijn animaties ' + player.animations + '                    #')
+  print('#     Als je dit wilt aanpassen typ: k(kort) of l(lang)    #')
+  print('#                                                          #')
+  print('#               Typ b(back) om terug te gaan               #')
+  print('############################################################')
+  print('#         -=- gemaakt door Brendan en Martijn -=-          #')
+  print('############################################################')
+  game_settings_options()
 
 def game_help_menu():
   os.system('clear')
@@ -631,7 +696,7 @@ def inventory_options():
 ### OPTIONS ###
 def options():
   print('Mogelijke acties: ')
-  print('- a, b, c, d, g(get item), i(inventory), h(help), q(quit) ')
+  print('- a, b, c, d, g(get item), i(inventory), h(help), s(settings) en q(quit) ')
   print('\nWat wil je doen?')
   option = input('> ')
   if option.lower() == ('quit'):
@@ -642,6 +707,10 @@ def options():
     game_help_menu()
   elif option.lower() == ('h'):
     game_help_menu()
+  elif option.lower() == ('settigns'):
+    game_settings_menu()
+  elif option.lower() == ('s'):
+    game_settings_menu()
   elif option.lower() == ('inventory'):
     print('dit wordt de inventory')
     options()
@@ -687,3 +756,4 @@ title_screen()
 # - item oppakken
 # - item nodig om verder te komen
 # - health system???
+# - als optie wel in abcd zit maar niet mogelijk is komt er een error
