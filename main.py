@@ -10,6 +10,7 @@ class player:
         self.health = 1 
         self.location = 'schoolplein'
         self.inventory = ['']
+        self.animations = 'lang'
 player = player()
 
 ### ROOMS ###
@@ -226,6 +227,8 @@ def title_screen_selections():
     start_game()
   elif option.lower() == ("help"):
     help_menu()
+  elif option.lower() == ('settings'):
+    settings_menu()
   elif option.lower() == ("stop"):
     stop_menu()
   else:
@@ -261,6 +264,33 @@ def game_help_menu_selections():
   else:
     print("vul aub een geldig antwoord in.")
     game_help_menu_selections()
+
+### SETTINGS OPTIONS ####
+def settings_options():
+  option = input('> ')
+  if option.lower() == ('k'):
+    player.animations = 'kort'
+    settings_menu()
+  elif option.lower() == ('kort'):
+    player.animations = 'kort'
+    settings_menu()
+  elif option.lower() == ('l'):
+    player.animations = 'lang'
+    settings_menu()
+  elif option.lower() == ('lang'):
+    player.animations = 'lang'
+    settings_menu()
+  elif option.lower() == ('back'):
+    title_screen()
+  elif option.lower() == ('b'):
+    title_screen()
+  elif option.lower() == ('menu'):
+    title_screen()
+  elif option.lower() == ('m'):
+    title_screen()
+  else:
+    print('vul aub een geldig antwoord in')
+    settings_options()
 
 ### STOP MENU SELECTIONS ###
 def stop_menu_selections():
@@ -318,11 +348,12 @@ def title_screen():
   print('#     -=- Het avontuur van het gouden wiskundeboek -=-     #')
   print('############################################################')
   print('#                                                          #')
-  print('#                  -=-=-=-o Start o-=-=-=-                 #')
-  print('#                  -=-=-=-o Help  o-=-=-=-                 #')
-  print('#                  -=-=-=-o Stop  o-=-=-=-                 #')
+  print('#               -=-=-=-o  Start     o-=-=-=-               #')
+  print('#               -=-=-=-o  Help      o-=-=-=-               #')
+  print('#               -=-=-=-o  Settings  o-=-=-=-               #')
+  print('#               -=-=-=-o  Stop      o-=-=-=-               #')
   print('#                                                          #')
-  print('#                  Typ Start, Help of stop                 #')
+  print('#             Typ Start, Help, Settings of stop            #')
   print('############################################################')
   print('#          -=- gemaakt door Brendan en Martijn -=-         #')
   print('############################################################')
@@ -353,6 +384,23 @@ def help_menu():
   print('#         -=- gemaakt door Brendan en Martijn -=-          #')
   print('############################################################')
   help_menu_selections() 
+
+def settings_menu():
+  os.system('clear')
+  print('############################################################')
+  print('#                    -=- Settings -=-                      #')
+  print('############################################################')
+  print('#                                                          #')
+  print('# -=- Animations                                           #')
+  print('#                                                          #')
+  print('# -=- Op dit moment zijn animaties ' + player.animations + '                    #')
+  print('#     Als je dit wilt aanpassen typ: k(kort) of l(lang)    #')
+  print('#                                                          #')
+  print('#        Typ Menu om terug naar het menu te gaan           #')
+  print('############################################################')
+  print('#         -=- gemaakt door Brendan en Martijn -=-          #')
+  print('############################################################')
+  settings_options()
 
 def game_help_menu():
   os.system('clear')
@@ -471,7 +519,13 @@ def print_location():
   os.system('clear')
   print('+=' * 45)
   print(player.location.upper())
-  print('\n' + rooms[player.location][DESCRIPTION])
+
+  if player.animations == 'lang':
+    for x in ('\n' + rooms[player.location][DESCRIPTION] + '\n'):
+      sleep(0.03)
+      print(x, end='', flush=True)
+  else:
+    print('\n' + rooms[player.location][DESCRIPTION])
   
 
   if rooms[player.location][DEATH] == ('ja'):
@@ -485,15 +539,27 @@ def print_location():
     win_menu()
   else:
     if rooms[player.location][ITEMS] == (''):
-      print('\n' + rooms[player.location][DIRECTIONS])
-      print('+=' * 45)
-      options()
-
+      if player.animations == 'lang':
+        for x in ('\n' + rooms[player.location][DIRECTIONS] + '\n \n'):
+          sleep(0.03) 
+          print(x, end='', flush=True)
+      else:
+        print('\n' + rooms[player.location][DIRECTIONS] + '\n')
+      
     else:
-      print('\n' + 'Op deze locatie ' + rooms[player.location][ITEMS])
-      print('\n' + rooms[player.location][DIRECTIONS])
-      print('+=' * 45)
-      options()
+      if player.animations == 'lang':
+        for x in ('\nOp deze locatie zijn de volgende items te vinden: \n' + rooms[player.location][ITEMS] + '\n'):
+          sleep(0.03) 
+          print(x, end='', flush=True)
+        for x in ('\n' + rooms[player.location][DIRECTIONS] + '\n \n'):
+          sleep(0.03) 
+          print(x, end='', flush=True)
+      else:
+        print('Op deze locatie zijn de volgende items te vinden: \n' + rooms[player.location][ITEMS])
+        print('\n' + rooms[player.location][DIRECTIONS] + '\n')
+        
+    print('+=' * 45)
+    options()
 
 ### GET OPTION ###
 def get_menu():
@@ -621,4 +687,3 @@ title_screen()
 # - item oppakken
 # - item nodig om verder te komen
 # - health system???
-# - als optie wel in abcd zit maar niet mogelijk is komt er een error
