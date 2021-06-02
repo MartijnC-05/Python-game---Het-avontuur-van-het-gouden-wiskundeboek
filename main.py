@@ -26,7 +26,7 @@ C = 'c'
 D = 'd'
 
 rooms = {
-  #level 1
+#level 1
   'schoolplein': {
     DESCRIPTION: 'Daar sta je dan, het oude, verlaten gebouw wat ooit het Sint-Maartenscollege was. \nJe kijkt nog even naar de brief. Je moet toch echt hier zijn, het staat er, \nhandgeschreven door ene Jopie hemzelf. “Het gouden wiskundeboek ligt verborgen \nin de ruïnes van het Maartens.” ‘Waarom doe ik dit?’ vraag je jezelf af, \nmaar het is te laat om terug te gaan.',
     ITEMS : "",
@@ -115,7 +115,7 @@ rooms = {
     WIN : 'nee',
   },
 
-  #level 2
+#level 2
   'hal' : {
     DESCRIPTION : "Je bent nu binnen. Je staat in de hal en kijkt om je heen, \nje slikt je angst weg en besluit waar je heen gaat: De trap op richting de eerste verdieping, \nnaar de aula, naar de vleugel NT en G, of terug naar buiten.",  
     ITEMS : "",
@@ -192,7 +192,7 @@ rooms = {
     WIN : 'nee',
   },
 
-  #level 3
+#level 3
   'lokalen' : {
     DESCRIPTION : "Je bent nu de trap opgegaan richting de lokalen. Je kan verder op de eerste verdieping, \nnaar de tweede verdieping of helemaal naar de derde verdieping. \nJe kan natuurlijk ook weer terug naar beneden.",  
     ITEMS : "",
@@ -206,41 +206,299 @@ rooms = {
   },
 
   'verdieping 1' : {
-    DESCRIPTION : "Je staat nu op de eerste verdieping. Je ziet 2 mensen in een lokaal zitten, en in de verte hoor je gestamp. Je kan de mensen benaderen, of verder naar het gestamp kijken.",  
+    DESCRIPTION : "Je staat nu op de eerste verdieping. Je ziet 2 mensen in een lokaal zitten, en in de verte hoor je gestamp. \nJe kan de mensen benaderen, of verder naar het gestamp kijken.",  
     ITEMS : "",
     DIRECTIONS : "Wat ga je doen?: \nA: Benader de mensen \nB: Ga naar het gestamp",
     DEATH : 'nee',
     WIN : 'nee',
-    A : 'de mensen',
-    B : 'het gestamp',
+    A : 'benader de mensen',
+    B : 'ga naar het gestamp',
     C : 'verdieping 1',
     D : 'verdieping 1',
   },
 
-   'de mensen' : {
-    DESCRIPTION : "Je nadert de deuropening, en hoort een zacht gebabbel over God, Jezus en de 		Heilige Geest, amen. Je stapt het lokaal in, en de vrouw kijkt direct jouw kant op. 		'Verdwijn, brugger! U bent hier niet welkom!'' Ze duwt een kruis in je gezicht. 'De 		kracht van God houdt u tegen!'' Je wordt teruggebracht naar de hal.",  
+  'benader de mensen' : {
+    DESCRIPTION : "Je nadert de deuropening, en hoort een zacht gebabbel over God, Jezus en de Heilige Geest, amen. \nJe stapt het lokaal in, en de vrouw kijkt direct jouw kant op. Verdwijn, brugger! \nU bent hier niet welkom! Ze duwt een kruis in je gezicht. De kracht van God houdt u tegen! Je wordt teruggebracht naar de hal.",  
     ITEMS : "",
-    DIRECTIONS : "",
-    DEATH : '',
-    WIN : '',
-    A : '',
-    B : '',
-    C : '',
-    D : '',
+    DIRECTIONS : "Je kunt: \nA: alleen maar naar de hal",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'hal',
+    B : 'benader de mensen',
+    C : 'benader de mensen',
+    D : 'benader de mensen',
   },
 
-  '' : {
-    DESCRIPTION : "",  
-    ITEMS : "",
-    DIRECTIONS : "",
-    DEATH : '',
-    WIN : '',
-    A : '',
-    B : '',
-    C : '',
-    D : '',
+  'ga naar het gestamp' : {
+    DESCRIPTION : "Je loopt op het gestamp af. Je ziet in een lokaal een man die bruggers aan het hypnotiseren is met groene koffiebonen. \nUiteindelijk kom je aan bij een ander lokaal, waar je een man met korte broek ziet. \nJe herinnert je ineens een oude tegeltjes wijsheid van je oom Mark. 'Een man zonder baard is als Deegens zonder beenhaar.' \nJe ziet dat zijn benen glad geschoren zijn. Je valt flauw van de shock, en wordt wakker bij de trap. \nJe ziet een briefje liggen met een code.",  
+    ITEMS : "Briefje met code",
+    DIRECTIONS : "Je kunt: \nA: alleen maar naar de hal",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'hal',
+    B : 'ga naar het gestamp',
+    C : 'ga naar het gestamp',
+    D : 'ga naar het gestamp',
   },
 
+  'verdieping 2' : {
+    DESCRIPTION : "Je komt aan op de tweede verdieping. Ergens in de verte ruik je een vreemde geur \ndie erg kenmerkend is voor het vak wiskunde, je weet dus dat je in de buurt bent, maar moet je er wel heen gaan?",  
+    ITEMS : "",
+    DIRECTIONS : "Je kunt: \nA: verder de gang in \nB: terug gaan",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'verder de gang in',
+    B : 'terug gaan',
+    C : 'verdieping 2',
+    D : 'verdieping 2',
+  },
+
+  'verder de gang in' : {
+    DESCRIPTION : "je loopt verder de gang in, hoe verder je loopt hoe sterker de geur wordt. Je komt aan bij het lokaal van Jopie.",  
+    ITEMS : "",
+    DIRECTIONS : "Je kunt: \nA: alleen naar de ingang van het lokaal van jopie",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'ingang van het lokaal van jopie',
+    B : 'verder de gang in',
+    C : 'verder de gang in',
+    D : 'verder de gang in',
+  },
+
+  'terug gaan' : {
+    DESCRIPTION : "Je wilt terug gaan, maar de geur is zo sterk dat je niet meer kan nadenken, \nje loopt vanzelf naar het wiskundelokaal van jopie, je kunt niet eens meer tegenstribbelen.",  
+    ITEMS : "",
+    DIRECTIONS : "je kunt: \nA: alleen maar naar het lokaal van jopie",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'ingang van het lokaal van jopie',
+    B : 'terug gaan',
+    C : 'terug gaan',
+    D : 'terug gaan',
+  },
+
+  'verdieping 3' : {
+    DESCRIPTION : "Helemaal uitgeput kom je aan op de derde verdieping. Je hoort uit de gang een oorverdovend geschreeuw komen, \nje vraagt je af of je wel verder de gang in moet lopen of dat je terug zal gaan. ",  
+    ITEMS : "",
+    DIRECTIONS : "Waar ga je heen: \nA: verder in de gang \nB: terug",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'verder in de gang',
+    B : 'lokalen',
+    C : 'verdieping 3',
+    D : 'verdieping 3',
+  },
+
+  'verder in de gang' : {
+    DESCRIPTION : "Je besluit om verder de gang in te lopen. Je loopt eerst langs een lokaal waar allemaal mensen \ncroissants en baguettes aan het eten zijn met een zeer arelaxend muziekje op de achtergrond. \nAls je dan verder de gang in loopt zie je een dame die heel aandachtig aan het kijken is \nnaar naakte beelden.Vreemd, denk je, maar je loopt toch door. \nTenslotte kom je aan bij het lokaal waar het geluid vandaan kwam. Je probeert het lokaal in te kijken, \nmaar er sprint een huilende brugger uit het lokaal, gevolgd door een schreeuwende man. \nHet geluid is werkelijk oorverdovend, maar veel tijd voor zeuren heb je niet. \nDe man kijkt direct jouw kant op. 'Vertaal jij eens een gerundivum!' \nHij knijpt zijn ogen tot spleetjes, dit is wel echt serieus.",  
+    ITEMS : "",
+    DIRECTIONS : "Wat zeg je? \nA: 'Uh… Servus? \nB: gebruik legoblokje (alleen beschikbaar als je een legoblokje hebt)	",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'Uh… Servus?',
+    B : 'gebruik legoblokje',
+    C : 'verder in de gang',
+    D : 'verder in de gang',
+  },
+
+  'Uh… Servus?' : {
+    DESCRIPTION : "De gezichtsuitdrukking van de man verandert in eens, het lijkt alsof hij gaat huilen, maar ineens start hij met opera zingen. Na een tijdje pakt hij je bij je kraag. 'Ik ga jou 	necare.' Ik spaar je de details, maar het laatste wat je hoorde was 'slaven en doden is echt mijn ding.' Het loopt niet goed af.",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+  },
+
+  'gebruik legoblokje' : {
+    DESCRIPTION : "Je legt het legoblokje op de grond en rent zo snel mogelijk weg. De man kan zijn aandacht alleen vestigen op het blokje. \nJe bent weer veilig, ook al is het volledig uitgeput, bij de trap.",  
+    ITEMS : "",
+    DIRECTIONS : "Je kunt: \nA: alleen maar naar de hal",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'hal',
+    B : 'gebruik legoblokje',
+    C : 'gebruik legoblokje',
+    D : 'gebruik legoblokje',
+  },
+
+# level 4
+  'ingang van het lokaal van jopie' : {
+    DESCRIPTION : "Je staat nu bij de ingang van het lokaal waar de geur vandaan komt. Er staat een zeer lange en brede man in de deuropening. \nHij kijkt niet naar beneden, hij bromt alleen iets van “Geef mij de code.”",  
+    ITEMS : "",
+    DIRECTIONS : "Wat doe je? \nA: Welke code? \nB: gebruik code",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'welke code?',
+    B : 'gebruik code',
+    C : 'ingang van het lokaal van jopie',
+    D : 'ingang van het lokaal van jopie',
+  },
+
+  'welke code?' : {
+    DESCRIPTION : "Welke code? Ik moet hier waarschijnlijk later terugkomen.",  
+    ITEMS : "",
+    DIRECTIONS : "Je kunt: \nA: alleen maar naar de trap",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'trap',
+    B : 'welke code?',
+    C : 'welke code?',
+    D : 'welke code?',
+  },
+
+  'gebruik code' : {
+    DESCRIPTION : "Je noemt de code op, namelijk 69420. De man kijkt ineens omlaag, en gaat als een soort deur aan de kant. ",  
+    ITEMS : "",
+    DIRECTIONS : "Je kunt: \nA: alleen maar naar het lokaal van Jopie",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'lokaal van Jopie',
+    B : 'gebruik code',
+    C : 'gebruik code',
+    D : 'gebruik code',
+  },
+
+  'lokaal van Jopie' : {
+    DESCRIPTION : "Je stapt het lokaal in, waar een half kale man op een troon van wiskundeboeken zit. \n“Gegroet! Ik zie dat je mijn brief hebt ontvangen. Wist je al dat je de haakjes bent vergeten?” \nJe kijkt een beetje verward. ‘Waar heeft hij het over?’ denk je. “Ik zal mezelf even voorstellen. \nIk ben Jopie, heer van lokaal 211 en meester van de wiskunde.” Achter hem staat een groot krijtbord \nmet een grote scheur erin, het gerucht gaat dat Jopie eens een leerling met zijn hoofd tegen het bord aan heeft gegooid. \nJopie gaat verder met zijn verhaal, van alles over zijn meesterplan, hoeveel succes hij al heeft geboekt \nen hoe hij hier zo vorstelijk voor betaald wordt. ",  
+    ITEMS : "",
+    DIRECTIONS : "Wat doe je? \nA: “Hij heeft wel een boeiend verhaal, dat wil ik wel afluisteren.” \nB: B: “Ik kom hier voor het gouden boek, ik heb geen tijd voor dit verhaal.”",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'verhaal afluisteren',
+    B : 'ik heb geen tijd voor dit verhaal',
+    C : 'lokaal van Jopie',
+    D : 'lokaal van Jopie',
+  },
+
+  'verhaal afluisteren' : {
+    DESCRIPTION : "Je wacht netjes Jopie zijn verhaal af. Nadat hij is afgesloten met zijn keuze om van vorstelijke salaris \neen gouden wiskundeboek te kopen, bedankt hij je voor het luisteren. Vervolgens drukt hij op een knopje, \nwaardoor je in de kelder van de ruïnes valt. Je kan wel mooi een gesprek voeren met een andere jongen \ndie heel erg van Feyenoord houdt, maar vervolgens ga je dood van de verveling.",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+  },
+
+  'ik heb geen tijd voor dit verhaal' : {
+    DESCRIPTION : "“Ik kom hier voor het gouden boek, ik heb geen tijd voor dit verhaal.” Je blik dwaalt af naar 2 glimmende boeken achter hem, \neen gouden boek wat erg lijkt op wiskunde, en een zilveren boek wat lijkt op Frans. Je schraapt met je nagels over het krijtbord \nom jopie tijdelijk uit te schakelen, het geluid is zo scherp dat je zelf ook bijna was uitgeschakeld. \nJe kunt nu snel naar het boek lopen, maar welk boek pak je?",  
+    ITEMS : "",
+    DIRECTIONS : "A: “Ik kwam hier voor het gouden boek, ik pak het gouden boek!” \nB: A: “Ik kwam hier voor het gouden boek, ik pak het gouden boek!”",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'gouden boek',
+    B : 'zilveren boek',
+    C : 'ik heb geen tijd voor dit verhaal',
+    D : 'ik heb geen tijd voor dit verhaal',
+  },
+
+# deze is nog niet goed
+  'zilveren boek' : {
+    DESCRIPTION : "“Eigenlijk is dat zilveren boek leuker...”Je rent langs de troon van Jopie en pakt het boek. \nHet moment dat je het boek aanraakt voel je de kracht van de Fransen in je opkomen.",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+  },
+
+#level 5
+  'gouden boek' : {
+    DESCRIPTION : "Je rent langs de troon van Jopie en pakt het boek. Het boek is best zwaar, dus je weet meteen dat het boek van puur goud is gemaakt \n Je hebt nu het boek te pakken, maar je moet nu nog zien te ontsnappen \nvoordat Jopie weer wakker wordt. Welke kant ga je op?",  
+    ITEMS : "",
+    DIRECTIONS : "\nA: Je gaat naar de gang \nB: Je gaat via het raam naar buiten \nC: Je kijkt nog even rond in het lokaal",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'naar de gang',
+    B : 'via het raam naar buiten',
+    C : 'nog even rondkijken in het lokaal',
+    D : 'gouden boek',
+  },
+
+  'via het raam naar buiten' : {
+    DESCRIPTION : "De snelste weg naar buiten is natuurlijk via het raam. Je doet het raam open en kijkt even, \n‘Het valt wel mee hoe hoog dit is.’ Denk je, je tuurt iets te ver over het randje en kukelt naar beneden. \nJe komt met je bips terecht op een legoblokje. Je schreeuwt het uit van de pijn, en door de schreeuw wordt Jopie weer wakker, \nwaarna hij zelf ook springt. Uiteindelijk heeft hij je toch te pakken.",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+  },
+
+  'nog even rondkijken in het lokaal' : {
+    DESCRIPTION : "Je besluit om nog even rond te kijken in het rommelige lokaal van jopie. \n“Misschien liggen er nog wel waardevolle spullen die ik kan meenemen.” Denk je. \nJe ziet nog een paar wiskunde uitwerkingen liggen. Je denkt: “die kan ik nog wel voor wat geld aan bruggers verkopen.” \nOp dat moment wordt Jopie wakker, hij ziet dat zijn gouden boek weg is en dat jij in zijn lokaal \naan het rondkijken bent. Hij drukt op een knopje en je valt naar beneden. \n“En waag het niet om nog eens te komen!” roept hij je nog na. ",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+  },
+
+  'naar de gang' : {
+    DESCRIPTION : "Je rent snel het lokaal uit, maar Jopie wordt net wakker. Hij ziet dat zijn boek weg is en dat jij in de deuropening staat. \n“Nou ja, dat had ik niet verwacht!” Zegt hij. “Maar goed, ik wil dat boek wel terug.” \nHij schraapt zijn keel. “MAAAAAARCEEEEEEEEEEEEL!” Schreeuwt hij. \nPlots komt een zeer brede man uit een ander lokaal gestormd. Je slikt puur van de schrik, \nen zet het op een rennen.",  
+    ITEMS : "",
+    DIRECTIONS : "A: “Oh jeetje, snel weg hier.” \nB: B: gebruik fiets \nC: gebruik wafel",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'Oh jeetje, snel weg hier',
+    B : 'gebruik fiets',
+    C : 'gebruik wafel',
+    D : 'naar de gang',
+  },
+
+  'oh jeetje, snel weg hier' : {
+    DESCRIPTION : "Het maakt niet uit hoe snel je rent, Marcel is gewoon sneller. Op een gegeven moment haalt hij je in. \nHij grijpt het boek uit je handen en vervolgens gooit hij je terug naar de hal. Volgende keer beter dan maar",  
+    ITEMS : "",
+    DIRECTIONS : "Je kunt: \nA: aleen maar naar hal",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'hal',
+    B : 'oh jeetje, snel weg hier',
+    C : 'oh jeetje, snel weg hier',
+    D : 'oh jeetje, snel weg hier',
+  },
+
+  'gebruik fiets' : {
+    DESCRIPTION : "Je merkt dat Marcel simpelweg sneller is, maar je herinnert ineens dat Andy je een fiets had gegeven. \nJe tovert de fiets uit je broekzak en start met door de gangen fietsen. Je gaat de trap af, \nen komt dan weer Andy tegen. Hij blokkeert het pad en kijkt je heel boos aan. \n“Niet fietsen door de gangen!” Schreeuwt hij. Hij trapt je de school uit. “En niet meer terugkomen!” \nSchreeuwt hij. helaas heb je het boek niet kunnen redden. ",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+  },
+
+  'gebruik wafel' : {
+    DESCRIPTION : "Marcel nadert steeds, maar dan herinner je ineens dat je nog een wafel had gevonden. \nJe gooit hem naar achteren, en kijkt niet om totdat je bij de trap bent. Marcel is blijkbaar \nheel geïnteresseerd door de wafel, aangezien je bent ontsnapt.",  
+    ITEMS : "",
+    DIRECTIONS : "je kunt: \nA: alleen maar naar de ontsnapping",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'ontsnapping',
+    B : 'gebruik wafel',
+    C : 'gebruik wafel',
+    D : 'gebruik wafel',
+  },
+
+  'ontsnapping' : {
+    DESCRIPTION : "Je rent snel via de trap naar beneden, maar als je naar buiten wilt rennen komt de rector om de hoek lopen.",  
+    ITEMS : "",
+    DIRECTIONS : "Wat doe je? \nA: Als je het zilveren wiskundeboek hebt \nB: als je het gouden wiskundeboek hebt",
+    DEATH : 'nee',
+    WIN : 'nee',
+    A : 'ontsnapping gouden wiskundeboek',
+    B : 'ontsnapping zilveren wiskundeboek',
+    C : 'ontsnapping',
+    D : 'ontsnapping',
+  },
+
+  'ontsnapping zilveren wiskundeboek' : {
+    DESCRIPTION : "De rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ \nen “Ik hou van stroopwafels.” Maar je rent ontzettend snel langs hem. Je nadert de uitgang, \nmaar plotseling komt er een groepje mensen gewapend met baguettes en berets om de hoek kijken. \n“Prenez son noix!” Zegt een van hen. Ze komen op je afgerend en steken je neer met hun baguettes. \nHet is een zeer onprettige, arelaxende ervaring. ",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'ja',
+    WIN : 'nee',
+  },
+
+  'ontsnapping gouden wiskundeboek' : {
+    DESCRIPTION : "De rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ en “Ik hou van stroopwafels.” \nMaar je rent ontzettend snel langs hem. Je nadert de uitgang, maar plotseling staat Jopie in de weg. \n“Dus jij denkt dat je snel weg kan komen?! Nou nou zeg, je lijkt echt op David. \nWat ben ik toch ont-zet-tend blij met jou. Helaas stopt het hier echt, \nhierna ga ik denk ik wel genieten van mijn pensioen op een mooi strand, al hou ik helemaal niet van het strand.” \nJopie maakt zijn verhaal af, maar je was al langs hem gerend. Je rent door de fietsenstalling, \nzegt Andy even gedag en rent weg naar de horizon, met het gouden wiskundeboek onder je arm.",  
+    ITEMS : "",
+    DIRECTIONS : "",
+    DEATH : 'nee',
+    WIN : 'ja',
+  },
 }
 
 
@@ -366,7 +624,8 @@ def game_stop_menu_selections():
 
 ### DEATH MENU SELECTIONS ###
 def death_menu_selections():
-  player.location='schoolplein'
+  player.location = 'schoolplein'
+  player.inventory = ''
   option = input ("> ")
   if option.lower() == ("ja"):
     print_location()
@@ -379,6 +638,7 @@ def death_menu_selections():
 ### WIN MENU SELECTIONS ###
 def win_menu_selections():
   player.location='schoolplein'
+  player.inventory = ''
   option = input ("> ")
   if option.lower() == ("ja"):
     title_screen()
@@ -582,7 +842,7 @@ def start_game():
 ### print location ###
 def print_location():
   os.system('clear')
-  print('+=' * 45)
+  print('+=' * 55)
   print(player.location.upper())
 
   if player.animations == 'lang':
@@ -594,12 +854,12 @@ def print_location():
   
 
   if rooms[player.location][DEATH] == ('ja'):
-    print('\n' + '+=' * 45)
+    print('\n' + '+=' * 55)
     print('Game over')
     time.sleep(10)
     death_menu()
   elif rooms[player.location][WIN] == ('ja'):
-    print('\n' + '+=' * 45)
+    print('\n' + '+=' * 55)
     time.sleep(10)
     win_menu()
   else:
@@ -623,7 +883,7 @@ def print_location():
         print('Op deze locatie zijn de volgende items te vinden: \n' + rooms[player.location][ITEMS])
         print('\n' + rooms[player.location][DIRECTIONS] + '\n')
         
-    print('+=' * 45)
+    print('+=' * 55)
     options()
 
 ### GET OPTION ###
@@ -631,7 +891,7 @@ def get_menu():
   os.system('clear')
   print('+=' * 45)
   print('In deze kamer liggen deze items:')
-  print('-=-' + rooms[player.location][ITEMS])
+  print('-=- ' + rooms[player.location][ITEMS])
   print('\nWil je dit item oppakken?')
   print('+=' * 45)
   print('typ: y(yes), n(no), of b(back)')
@@ -640,8 +900,8 @@ def get_menu():
 def get_options():
   option = input('> ')
   if option.lower() == ('y'):
-    rooms[player.location][ITEMS].remove(ITEMS)
-    player.inventory.append(ITEMS)
+    rooms[player.location][ITEMS].remove(rooms[player.location][ITEMS])
+    player.inventory.append(rooms[player.location][ITEMS])
   elif option.lower() == ('n'):
     print_location()
   elif option.lower() == ('b'):
@@ -713,10 +973,10 @@ def options():
     game_settings_menu()
   elif option.lower() == ('inventory'):
     print('dit wordt de inventory')
-    options()
+    inventory()
   elif option.lower() == ('i'):
     print('dit wordt de inventory')
-    options()
+    inventory()
   elif option.lower() == ('get'):
     print('dit wordt de item get function')
     get_menu()
@@ -756,4 +1016,4 @@ title_screen()
 # - item oppakken
 # - item nodig om verder te komen
 # - health system???
-# - als optie wel in abcd zit maar niet mogelijk is komt er een error
+# - 2e keer in kamer korte omschrijving
