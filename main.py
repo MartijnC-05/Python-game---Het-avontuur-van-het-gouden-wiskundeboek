@@ -361,7 +361,7 @@ rooms = {
   'lokaal van Jopie' : {
     DESCRIPTION : "Je stapt het lokaal in, waar een half kale man op een troon van wiskundeboeken zit. \n“Gegroet! Ik zie dat je mijn brief hebt ontvangen. Wist je al dat je de haakjes bent vergeten?” \nJe kijkt een beetje verward. ‘Waar heeft hij het over?’ denk je. “Ik zal mezelf even voorstellen. \nIk ben Jopie, heer van lokaal 211 en meester van de wiskunde.” Achter hem staat een groot krijtbord \nmet een grote scheur erin, het gerucht gaat dat Jopie eens een leerling met zijn hoofd tegen het bord aan heeft gegooid. \nJopie gaat verder met zijn verhaal, van alles over zijn meesterplan, hoeveel succes hij al heeft geboekt \nen hoe hij hier zo vorstelijk voor betaald wordt. ",  
     ITEMS : "",
-    DIRECTIONS : "Wat doe je? \nA: “Hij heeft wel een boeiend verhaal, dat wil ik wel afluisteren.” \nB: B: “Ik kom hier voor het gouden boek, ik heb geen tijd voor dit verhaal.”",
+    DIRECTIONS : "Wat doe je? \nA: “Hij heeft wel een boeiend verhaal, dat wil ik wel afluisteren.” \nB: “Ik kom hier voor het gouden boek, ik heb geen tijd voor dit verhaal.”",
     DEATH : 'nee',
     WIN : 'nee',
     A : 'verhaal afluisteren',
@@ -381,7 +381,7 @@ rooms = {
   'ik heb geen tijd voor dit verhaal' : {
     DESCRIPTION : "“Ik kom hier voor het gouden boek, ik heb geen tijd voor dit verhaal.” Je blik dwaalt af naar 2 glimmende boeken achter hem, \neen gouden boek wat erg lijkt op wiskunde, en een zilveren boek wat lijkt op Frans. Je schraapt met je nagels over het krijtbord \nom jopie tijdelijk uit te schakelen, het geluid is zo scherp dat je zelf ook bijna was uitgeschakeld. \nJe kunt nu snel naar het boek lopen, maar welk boek pak je?",  
     ITEMS : "",
-    DIRECTIONS : "A: “Ik kwam hier voor het gouden boek, ik pak het gouden boek!” \nB: A: “Ik kwam hier voor het gouden boek, ik pak het gouden boek!”",
+    DIRECTIONS : "A: “Ik kwam hier voor het gouden boek, ik pak het gouden boek!” \nB: “Eigenlijk is dat zilveren boek leuker...”",
     DEATH : 'nee',
     WIN : 'nee',
     A : 'gouden boek',
@@ -390,7 +390,6 @@ rooms = {
     D : 'ik heb geen tijd voor dit verhaal',
   },
 
-# deze is nog niet goed
   'zilveren boek' : {
     DESCRIPTION : "“Eigenlijk is dat zilveren boek leuker...”Je rent langs de troon van Jopie en pakt het boek. \nHet moment dat je het boek aanraakt voel je de kracht van de Fransen in je opkomen.",  
     ITEMS : "",
@@ -431,7 +430,7 @@ rooms = {
   'naar de gang' : {
     DESCRIPTION : "Je rent snel het lokaal uit, maar Jopie wordt net wakker. Hij ziet dat zijn boek weg is en dat jij in de deuropening staat. \n“Nou ja, dat had ik niet verwacht!” Zegt hij. “Maar goed, ik wil dat boek wel terug.” \nHij schraapt zijn keel. “MAAAAAARCEEEEEEEEEEEEL!” Schreeuwt hij. \nPlots komt een zeer brede man uit een ander lokaal gestormd. Je slikt puur van de schrik, \nen zet het op een rennen.",  
     ITEMS : "",
-    DIRECTIONS : "A: “Oh jeetje, snel weg hier.” \nB: B: gebruik fiets \nC: gebruik wafel",
+    DIRECTIONS : "A: “Oh jeetje, snel weg hier.” \nB: gebruik fiets \nC: gebruik wafel",
     DEATH : 'nee',
     WIN : 'nee',
     A : 'Oh jeetje, snel weg hier',
@@ -475,7 +474,7 @@ rooms = {
   'ontsnapping' : {
     DESCRIPTION : "Je rent snel via de trap naar beneden, maar als je naar buiten wilt rennen komt de rector om de hoek lopen.",  
     ITEMS : "",
-    DIRECTIONS : "Wat doe je? \nA: Als je het zilveren wiskundeboek hebt \nB: als je het gouden wiskundeboek hebt",
+    DIRECTIONS : "Wat doe je? \nA: Als je het gouden wiskundeboek hebt \nB: als je het zilveren wiskundeboek hebt",
     DEATH : 'nee',
     WIN : 'nee',
     A : 'ontsnapping gouden wiskundeboek',
@@ -1004,12 +1003,9 @@ def move_player(move_dest):
 	print_location()
 
 
-
 title_screen()
 
-
 ### NOG DOEN! ###
-# - alle kamers toevoegen
 # - inventory tonen
 # - inventory item laten vallen
 # - items toevoegen
@@ -1017,3 +1013,4 @@ title_screen()
 # - item nodig om verder te komen
 # - health system???
 # - 2e keer in kamer korte omschrijving
+# - zinuitlijning tekst verbeteren
