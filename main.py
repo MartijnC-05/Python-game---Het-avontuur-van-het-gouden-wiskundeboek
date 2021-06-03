@@ -24,6 +24,7 @@ A = 'a'
 B = 'b'
 C = 'c'
 D = 'd'
+VISITED = 'visited'
 
 rooms = {
 #level 1
@@ -36,7 +37,8 @@ rooms = {
     A : 'fietsenstalling',
     B : 'achteringang',
     C : 'KJ plein',
-    D : 'schoolplein'
+    D : 'schoolplein',
+    VISITED : 'nee'
   },
 
   'fietsenstalling' : {
@@ -48,7 +50,8 @@ rooms = {
     A : 'Wat doe JIJ hier?',
     B : 'Ik kom mijn fiets ophalen, die roze daar',
     C : 'Ene Jopie heeft me gestuurd',
-    D : 'fietsenstalling'
+    D : 'fietsenstalling',
+    VISITED : 'nee'
   },
 
   'Wat doe JIJ hier?' : {
@@ -57,6 +60,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
   },
 
   'Ik kom mijn fiets ophalen, die roze daar' : {
@@ -69,6 +73,7 @@ rooms = {
     B : 'Ik kom mijn fiets ophalen, die roze daar',
     C : 'Ik kom mijn fiets ophalen, die roze daar',
     D : 'Ik kom mijn fiets ophalen, die roze daar',
+    VISITED : 'nee'
   },
 
   'Ene Jopie heeft me gestuurd': {
@@ -81,6 +86,7 @@ rooms = {
     B : 'Ene Jopie heeft me gestuurd',
     C : 'Ene Jopie heeft me gestuurd',
     D : 'Ene Jopie heeft me gestuurd',
+    VISITED : 'nee'
   },
 
   'achteringang' : {
@@ -93,6 +99,7 @@ rooms = {
     B : 'achteringang',
     C : 'achteringang',
     D : 'achteringang',
+    VISITED : 'nee'
   },
 
   'KJ plein' : {
@@ -105,6 +112,7 @@ rooms = {
     B : 'KJ centrum',
     C : 'KJ plein',
     D : 'KJ plein',
+    VISITED : 'nee'
   },
 
   'KJ centrum' : {
@@ -113,6 +121,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
   },
 
 #level 2
@@ -126,6 +135,7 @@ rooms = {
     B : 'aula',
     C : 'vleugel NT en G',
     D : 'schoolplein',
+    VISITED : 'nee'
   },
 
   'trap' : {
@@ -138,6 +148,7 @@ rooms = {
     B : 'mediatheek',
     C : 'trap',
     D : 'trap',
+    VISITED : 'nee'
   },
 
   'mediatheek' : {
@@ -146,6 +157,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
     },  
 
   'aula' : {
@@ -157,7 +169,8 @@ rooms = {
     A : 'kantine',
     B : 'oude mannen',
     C : 'hal',
-    D : 'aula'
+    D : 'aula',
+    VISITED : 'nee'
   },
 
   'kantine' : {
@@ -170,6 +183,7 @@ rooms = {
     B: 'kantine',
     C : 'kantine',
     D : 'kantine',
+    VISITED : 'nee'
   },
 
   'oude mannen' : {
@@ -182,6 +196,7 @@ rooms = {
     B : 'oude mannen',
     C : 'oude mannen',
     D : 'oude mannen',
+    VISITED : 'nee'
   },
 
   'vleugel NT en G': {
@@ -190,19 +205,21 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
   },
 
 #level 3
   'lokalen' : {
     DESCRIPTION : "Je bent nu de trap opgegaan richting de lokalen. Je kan verder op de eerste verdieping, \nnaar de tweede verdieping of helemaal naar de derde verdieping. \nJe kan natuurlijk ook weer terug naar beneden.",  
     ITEMS : "",
-    DIRECTIONS : "Je kunt naar: \nA: De eerste verdieping \nB: De tweede verdieping \nC: De derde verdieping \nD:Naar beneden",
+    DIRECTIONS : "Je kunt naar: \nA: De eerste verdieping \nB: De tweede verdieping \nC: De derde verdieping \nD: Naar beneden",
     DEATH : 'nee',
     WIN : 'win',
     A : 'verdieping 1',
     B : 'verdieping 2',
     C : 'verdieping 3',
     D : 'hal',
+    VISITED : 'nee'
   },
 
   'verdieping 1' : {
@@ -215,6 +232,7 @@ rooms = {
     B : 'ga naar het gestamp',
     C : 'verdieping 1',
     D : 'verdieping 1',
+    VISITED : 'nee'
   },
 
   'benader de mensen' : {
@@ -227,10 +245,11 @@ rooms = {
     B : 'benader de mensen',
     C : 'benader de mensen',
     D : 'benader de mensen',
+    VISITED : 'nee'
   },
 
   'ga naar het gestamp' : {
-    DESCRIPTION : "Je loopt op het gestamp af. Je ziet in een lokaal een man die bruggers aan het hypnotiseren is met groene koffiebonen. \nUiteindelijk kom je aan bij een ander lokaal, waar je een man met korte broek ziet. \nJe herinnert je ineens een oude tegeltjes wijsheid van je oom Mark. 'Een man zonder baard is als Deegens zonder beenhaar.' \nJe ziet dat zijn benen glad geschoren zijn. Je valt flauw van de shock, en wordt wakker bij de trap. \nJe ziet een briefje liggen met een code.",  
+    DESCRIPTION : "Je loopt op het gestamp af. Je ziet in een lokaal een man die bruggers aan het hypnotiseren is \nmet groene koffiebonen. Uiteindelijk kom je aan bij een ander lokaal, waar je een man met korte broek ziet. \nJe herinnert je ineens een oude tegeltjes wijsheid van je oom Mark. \n'Een man zonder baard is als Deegens zonder beenhaar.' Je ziet dat zijn benen glad geschoren zijn. \nJe valt flauw van de shock, en wordt wakker bij de trap. Je ziet een briefje liggen met een code.",  
     ITEMS : "Briefje met code",
     DIRECTIONS : "Je kunt: \nA: alleen maar naar de hal",
     DEATH : 'nee',
@@ -239,6 +258,7 @@ rooms = {
     B : 'ga naar het gestamp',
     C : 'ga naar het gestamp',
     D : 'ga naar het gestamp',
+    VISITED : 'nee'
   },
 
   'verdieping 2' : {
@@ -251,6 +271,7 @@ rooms = {
     B : 'terug gaan',
     C : 'verdieping 2',
     D : 'verdieping 2',
+    VISITED : 'nee'
   },
 
   'verder de gang in' : {
@@ -263,6 +284,7 @@ rooms = {
     B : 'verder de gang in',
     C : 'verder de gang in',
     D : 'verder de gang in',
+    VISITED : 'nee'
   },
 
   'terug gaan' : {
@@ -275,6 +297,7 @@ rooms = {
     B : 'terug gaan',
     C : 'terug gaan',
     D : 'terug gaan',
+    VISITED : 'nee'
   },
 
   'verdieping 3' : {
@@ -287,6 +310,7 @@ rooms = {
     B : 'lokalen',
     C : 'verdieping 3',
     D : 'verdieping 3',
+    VISITED : 'nee'
   },
 
   'verder in de gang' : {
@@ -299,6 +323,7 @@ rooms = {
     B : 'gebruik legoblokje',
     C : 'verder in de gang',
     D : 'verder in de gang',
+    VISITED : 'nee'
   },
 
   'Uh… Servus?' : {
@@ -307,6 +332,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
   },
 
   'gebruik legoblokje' : {
@@ -319,6 +345,7 @@ rooms = {
     B : 'gebruik legoblokje',
     C : 'gebruik legoblokje',
     D : 'gebruik legoblokje',
+    VISITED : 'nee'
   },
 
 # level 4
@@ -332,6 +359,7 @@ rooms = {
     B : 'gebruik code',
     C : 'ingang van het lokaal van jopie',
     D : 'ingang van het lokaal van jopie',
+    VISITED : 'nee'
   },
 
   'welke code?' : {
@@ -344,6 +372,7 @@ rooms = {
     B : 'welke code?',
     C : 'welke code?',
     D : 'welke code?',
+    VISITED : 'nee'
   },
 
   'gebruik code' : {
@@ -356,6 +385,7 @@ rooms = {
     B : 'gebruik code',
     C : 'gebruik code',
     D : 'gebruik code',
+    VISITED : 'nee'
   },
 
   'lokaal van Jopie' : {
@@ -368,6 +398,7 @@ rooms = {
     B : 'ik heb geen tijd voor dit verhaal',
     C : 'lokaal van Jopie',
     D : 'lokaal van Jopie',
+    VISITED : 'nee'
   },
 
   'verhaal afluisteren' : {
@@ -376,6 +407,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
   },
 
   'ik heb geen tijd voor dit verhaal' : {
@@ -388,6 +420,7 @@ rooms = {
     B : 'zilveren boek',
     C : 'ik heb geen tijd voor dit verhaal',
     D : 'ik heb geen tijd voor dit verhaal',
+    VISITED : 'nee'
   },
 
   'zilveren boek' : {
@@ -396,6 +429,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
   },
 
 #level 5
@@ -409,6 +443,7 @@ rooms = {
     B : 'via het raam naar buiten',
     C : 'nog even rondkijken in het lokaal',
     D : 'gouden boek',
+    VISITED : 'nee'
   },
 
   'via het raam naar buiten' : {
@@ -417,6 +452,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
   },
 
   'nog even rondkijken in het lokaal' : {
@@ -425,6 +461,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
   },
 
   'naar de gang' : {
@@ -437,6 +474,7 @@ rooms = {
     B : 'gebruik fiets',
     C : 'gebruik wafel',
     D : 'naar de gang',
+    VISITED : 'nee'
   },
 
   'oh jeetje, snel weg hier' : {
@@ -449,6 +487,7 @@ rooms = {
     B : 'oh jeetje, snel weg hier',
     C : 'oh jeetje, snel weg hier',
     D : 'oh jeetje, snel weg hier',
+    VISITED : 'nee'
   },
 
   'gebruik fiets' : {
@@ -457,6 +496,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
   },
 
   'gebruik wafel' : {
@@ -469,6 +509,7 @@ rooms = {
     B : 'gebruik wafel',
     C : 'gebruik wafel',
     D : 'gebruik wafel',
+    VISITED : 'nee'
   },
 
   'ontsnapping' : {
@@ -481,6 +522,7 @@ rooms = {
     B : 'ontsnapping zilveren wiskundeboek',
     C : 'ontsnapping',
     D : 'ontsnapping',
+    VISITED : 'nee'
   },
 
   'ontsnapping zilveren wiskundeboek' : {
@@ -489,6 +531,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
+    VISITED : 'nee'
   },
 
   'ontsnapping gouden wiskundeboek' : {
@@ -497,6 +540,7 @@ rooms = {
     DIRECTIONS : "",
     DEATH : 'nee',
     WIN : 'ja',
+    VISITED : 'nee'
   },
 }
 
@@ -844,7 +888,9 @@ def print_location():
   print('+=' * 55)
   print(player.location.upper())
 
-  if player.animations == 'lang':
+  if rooms[player.location][VISITED] == ('ja'):
+    print('\n' + rooms[player.location][DESCRIPTION])
+  elif player.animations == 'lang':
     for x in ('\n' + rooms[player.location][DESCRIPTION] + '\n'):
       sleep(0.03)
       print(x, end='', flush=True)
@@ -863,7 +909,9 @@ def print_location():
     win_menu()
   else:
     if rooms[player.location][ITEMS] == (''):
-      if player.animations == 'lang':
+      if rooms[player.location][VISITED] == ('ja'):
+        print('\n' + rooms[player.location][DIRECTIONS] + '\n')
+      elif player.animations == 'lang':
         for x in ('\n' + rooms[player.location][DIRECTIONS] + '\n \n'):
           sleep(0.03) 
           print(x, end='', flush=True)
@@ -871,7 +919,10 @@ def print_location():
         print('\n' + rooms[player.location][DIRECTIONS] + '\n')
       
     else:
-      if player.animations == 'lang':
+      if rooms[player.location][VISITED] == ('ja'):
+        print('\nOp deze locatie zijn de volgende items te vinden: \n' + rooms[player.location][ITEMS])
+        print('\n' + rooms[player.location][DIRECTIONS] + '\n')
+      elif player.animations == 'lang':
         for x in ('\nOp deze locatie zijn de volgende items te vinden: \n' + rooms[player.location][ITEMS] + '\n'):
           sleep(0.03) 
           print(x, end='', flush=True)
@@ -879,11 +930,15 @@ def print_location():
           sleep(0.03) 
           print(x, end='', flush=True)
       else:
-        print('Op deze locatie zijn de volgende items te vinden: \n' + rooms[player.location][ITEMS])
+        print('\nOp deze locatie zijn de volgende items te vinden: \n' + rooms[player.location][ITEMS])
         print('\n' + rooms[player.location][DIRECTIONS] + '\n')
         
     print('+=' * 55)
     options()
+
+#########################################################
+#########################################################
+item = rooms[player.location][ITEMS]
 
 ### GET OPTION ###
 def get_menu():
@@ -899,8 +954,10 @@ def get_menu():
 def get_options():
   option = input('> ')
   if option.lower() == ('y'):
-    rooms[player.location][ITEMS].remove(rooms[player.location][ITEMS])
-    player.inventory.append(rooms[player.location][ITEMS])
+    player.inventory.append(item)
+    print(f'{item} is nu toegevoegd aan je inventory')
+    
+    get_options()
   elif option.lower() == ('n'):
     print_location()
   elif option.lower() == ('b'):
@@ -908,8 +965,8 @@ def get_options():
   else:
     print('vul aub een geldig antwoord in')
     get_options()
-
-
+  
+  
 def drop_item():
   os.system('clear')
   print('+=' * 45)
@@ -951,9 +1008,12 @@ def inventory_options():
     print('vul aub een geldig antwoord in')
     inventory_options()
 
+#########################################################
+#########################################################
 
 ### OPTIONS ###
 def options():
+  rooms[player.location][VISITED] = 'ja'
   print('Mogelijke acties: ')
   print('- a, b, c, d, g(get item), i(inventory), h(help), s(settings) en q(quit) ')
   print('\nWat wil je doen?')
@@ -1012,5 +1072,5 @@ title_screen()
 # - item oppakken
 # - item nodig om verder te komen
 # - health system???
-# - 2e keer in kamer korte omschrijving
 # - zinuitlijning tekst verbeteren
+# - aangepaste tijd voordat deathmenu getoont wordt
