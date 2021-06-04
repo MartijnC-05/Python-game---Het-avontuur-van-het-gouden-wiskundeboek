@@ -236,7 +236,7 @@ rooms = {
   },
 
   'benader de mensen' : {
-    DESCRIPTION : "Je nadert de deuropening, en hoort een zacht gebabbel over God, Jezus en de Heilige Geest, amen. \nJe stapt het lokaal in, en de vrouw kijkt direct jouw kant op. Verdwijn, brugger! \nU bent hier niet welkom! Ze duwt een kruis in je gezicht. De kracht van God houdt u tegen! Je wordt teruggebracht naar de hal.",  
+    DESCRIPTION : "Je nadert de deuropening, en hoort een zacht gebabbel over God, Jezus en de Heilige Geest, amen. \nJe stapt het lokaal in, en de vrouw kijkt direct jouw kant op. 'Verdwijn, brugger! \nU bent hier niet welkom!' Ze duwt een kruis in je gezicht. 'De kracht van God houdt u tegen!' Je wordt teruggebracht naar de hal.",  
     ITEMS : "",
     DIRECTIONS : "Je kunt: \nA: alleen maar naar de hal",
     DEATH : 'nee',
