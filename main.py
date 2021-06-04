@@ -350,7 +350,7 @@ rooms = {
 
 # level 4
   'ingang van het lokaal van jopie' : {
-    DESCRIPTION : "Je staat nu bij de ingang van het lokaal waar de geur vandaan komt. Er staat een zeer lange en brede man in de deuropening. \nHij kijkt niet naar beneden, hij bromt alleen iets van “Geef mij de code.”",  
+    DESCRIPTION : "Je staat nu bij de ingang van het lokaal waar de geur vandaan komt. \nEr staat een zeer lange en brede man in de deuropening. \nHij kijkt niet naar beneden, hij bromt alleen iets van “Geef mij de code.”",  
     ITEMS : "",
     DIRECTIONS : "Wat doe je? \nA: Welke code? \nB: gebruik code",
     DEATH : 'nee',
