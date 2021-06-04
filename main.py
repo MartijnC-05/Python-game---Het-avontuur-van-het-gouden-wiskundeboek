@@ -327,7 +327,7 @@ rooms = {
   },
 
   'Uh… Servus?' : {
-    DESCRIPTION : "De gezichtsuitdrukking van de man verandert in eens. \nHet lijkt alsof hij gaat huilen, maar ineens start hij met opera zingen. Na een tijdje pakt hij je bij je kraag. 'Ik ga jou 	necare.' Ik spaar je de details, maar het laatste wat je hoorde was 'slaven en doden is echt mijn ding.' Het loopt niet goed af.",  
+    DESCRIPTION : "De gezichtsuitdrukking van de man verandert in eens. \nHet lijkt alsof hij gaat huilen, maar ineens start hij met opera zingen. \nNa een tijdje pakt hij je bij je kraag. 'Ik ga jou necare.' Ik spaar je de details, maar het laatste wat je hoorde was 'slaven en doden is echt mijn ding.' Het loopt niet goed af.",  
     ITEMS : "",
     DIRECTIONS : "",
     DEATH : 'ja',
