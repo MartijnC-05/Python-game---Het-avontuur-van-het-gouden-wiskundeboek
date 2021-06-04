@@ -314,7 +314,7 @@ rooms = {
   },
 
   'verder in de gang' : {
-    DESCRIPTION : "Je besluit om verder de gang in te lopen. Je loopt eerst langs een lokaal waar allemaal mensen \ncroissants en baguettes aan het eten zijn met een zeer arelaxend muziekje op de achtergrond. \nAls je dan verder de gang in loopt zie je een dame die heel aandachtig aan het kijken is \nnaar naakte beelden.Vreemd, denk je, maar je loopt toch door. \nTenslotte kom je aan bij het lokaal waar het geluid vandaan kwam. Je probeert het lokaal in te kijken, \nmaar er sprint een huilende brugger uit het lokaal, gevolgd door een schreeuwende man. \nHet geluid is werkelijk oorverdovend, maar veel tijd voor zeuren heb je niet. \nDe man kijkt direct jouw kant op. 'Vertaal jij eens een gerundivum!' \nHij knijpt zijn ogen tot spleetjes, dit is wel echt serieus.",  
+    DESCRIPTION : "Je besluit om verder de gang in te lopen. Je loopt eerst langs een lokaal waar allemaal mensen \ncroissants en baguettes aan het eten zijn met een zeer arelaxend muziekje op de achtergrond. \nAls je dan verder de gang in loopt zie je een dame die heel aandachtig aan het kijken is \nnaar naakte beelden. 'Vreemd.' Denk je, maar je loopt toch door. \nTenslotte kom je aan bij het lokaal waar het geluid vandaan kwam. Je probeert het lokaal in te kijken, \nmaar er sprint een huilende brugger uit het lokaal, gevolgd door een schreeuwende man. \nHet geluid is werkelijk oorverdovend, maar veel tijd voor zeuren heb je niet. \nDe man kijkt direct jouw kant op. 'Vertaal jij eens een gerundivum!' \nHij knijpt zijn ogen tot spleetjes, dit is wel echt serieus.",  
     ITEMS : "",
     DIRECTIONS : "Wat zeg je? \nA: 'Uh… Servus? \nB: gebruik legoblokje (alleen beschikbaar als je een legoblokje hebt)	",
     DEATH : 'nee',
@@ -327,7 +327,7 @@ rooms = {
   },
 
   'Uh… Servus?' : {
-    DESCRIPTION : "De gezichtsuitdrukking van de man verandert in eens, het lijkt alsof hij gaat huilen, maar ineens start hij met opera zingen. Na een tijdje pakt hij je bij je kraag. 'Ik ga jou 	necare.' Ik spaar je de details, maar het laatste wat je hoorde was 'slaven en doden is echt mijn ding.' Het loopt niet goed af.",  
+    DESCRIPTION : "De gezichtsuitdrukking van de man verandert in eens. \nHet lijkt alsof hij gaat huilen, maar ineens start hij met opera zingen. Na een tijdje pakt hij je bij je kraag. 'Ik ga jou 	necare.' Ik spaar je de details, maar het laatste wat je hoorde was 'slaven en doden is echt mijn ding.' Het loopt niet goed af.",  
     ITEMS : "",
     DIRECTIONS : "",
     DEATH : 'ja',
@@ -336,12 +336,12 @@ rooms = {
   },
 
   'gebruik legoblokje' : {
-    DESCRIPTION : "Je legt het legoblokje op de grond en rent zo snel mogelijk weg. De man kan zijn aandacht alleen vestigen op het blokje. \nJe bent weer veilig, ook al is het volledig uitgeput, bij de trap.",  
+    DESCRIPTION : "Je legt het legoblokje op de grond en rent zo snel mogelijk weg. \nDe man kan zijn aandacht alleen vestigen op het blokje. \nJe bent weer veilig, ook al is het volledig uitgeput, bij de trap.",  
     ITEMS : "",
-    DIRECTIONS : "Je kunt: \nA: alleen maar naar de hal",
+    DIRECTIONS : "Je kunt: \nA: alleen maar naar de trap",
     DEATH : 'nee',
     WIN : 'nee',
-    A : 'hal',
+    A : 'trap',
     B : 'gebruik legoblokje',
     C : 'gebruik legoblokje',
     D : 'gebruik legoblokje',
@@ -956,7 +956,7 @@ def get_options():
   if option.lower() == ('y'):
     player.inventory.append(item)
     print(f'{item} is nu toegevoegd aan je inventory')
-    
+    rooms[player.location][ITEMS].remove()
     get_options()
   elif option.lower() == ('n'):
     print_location()
