@@ -175,7 +175,7 @@ rooms = {
 
   'kantine' : {
     DESCRIPTION : "Het is misschien een doodlopend einde, maar je kan toch een beetje rondkijken \nzonder lastig te worden gevallen. Er zijn een paar dingen die je opvallen, \nzoals een hendeltje van de kapotte panini machine, \nen een heerlijke wafel die bijna aan de datum is.",  
-    ITEMS : "zijn een hendeltje en een wafel te vinden",
+    ITEMS : "een hendeltje en een wafel",
     DIRECTIONS : "je kunt: \nA: alleen terug naar de aula",
     DEATH : 'nee',
     WIN : 'nee',
@@ -1066,11 +1066,15 @@ def move_player(move_dest):
 title_screen()
 
 ### NOG DOEN! ###
+
+# =+= ITEMS
 # - inventory tonen
 # - inventory item laten vallen
 # - items toevoegen
 # - item oppakken
 # - item nodig om verder te komen
+
+# =-= EXTRA
 # - health system???
 # - zinuitlijning tekst verbeteren
 # - aangepaste tijd voordat deathmenu getoont wordt
