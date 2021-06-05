@@ -56,8 +56,6 @@ rooms = {
 
   'Wat doe JIJ hier?' : {
     DESCRIPTION : "Andy stelt deze grap niet op prijs. Hij stuurt je meteen de fietsenstalling uit. \n“En niet meer terugkomen!” Schreeuwt hij je nog na. Nou, daar gaan je kansen om binnen te komen.",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -117,8 +115,6 @@ rooms = {
 
   'KJ centrum' : {
     DESCRIPTION : "Je zet 1 stap in het centrum, en wordt meteen overvallen door de bruggers. \nJe doet je best om terug te vechten, maar voor elke brugger die je neerslaat \nkomen er 3 meer uit de Albert Heijn lopen. Na een langdurige strijd overleef je het niet.",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -153,8 +149,6 @@ rooms = {
 
   'mediatheek' : {
     DESCRIPTION : "Je gaat de trap op richting de mediatheek. Je loopt nog langs lokaal 126, \nwaar een man met donkerblond haar achter een computer zit te klooien met google meet. \n‘Rare eend.’ Denk je. Je loopt door naar de mediatheek, waar je een zacht geluid \nvan een printer hoort. Het geluid wordt luider en luider, \ntotdat je de mediatheek zelf binnenloopt. Er is een enkele vrouw aanwezig, \nbezig met de printer. Ze draait zich direct om bij je eerste stap. \n‘Dus jij wilt hulp met printen?’ Vraagt ze. Je kan geen antwoord geven \nvoordat ze je al naar de printer heeft geleid. Vervolgens moet je printen \ntotdat je je laatste adem hebt gegeven.",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -201,8 +195,6 @@ rooms = {
 
   'vleugel NT en G': {
     DESCRIPTION : "Je loopt richting de vleugel van NT en G, maar voordat je er goed kan komen \nhoor je een explosie. Er komen 2 andere mensen uit een lokaal gerend, \ngevolgd door een derde man met een honkbalknuppel. De gewapende gek keert zich tot jou. \n‘Ga jij eens even ergens anders kletsen.’ Zegt hij, met een simpelweg enge glimlach op zijn gezicht. \nJe probeert weg te rennen, maar voordat je het weet heeft hij je knieschijven ingetimmerd. \nJe overleeft het niet. ",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -328,8 +320,6 @@ rooms = {
 
   'Uh… Servus?' : {
     DESCRIPTION : "De gezichtsuitdrukking van de man verandert in eens. \nHet lijkt alsof hij gaat huilen, maar ineens start hij met opera zingen. \nNa een tijdje pakt hij je bij je kraag. 'Ik ga jou necare.' Ik spaar je de details, maar het laatste wat je hoorde was 'slaven en doden is echt mijn ding.' Het loopt niet goed af.",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -403,8 +393,6 @@ rooms = {
 
   'verhaal afluisteren' : {
     DESCRIPTION : "Je wacht netjes Jopie zijn verhaal af. Nadat hij is afgesloten met zijn keuze om van vorstelijke salaris \neen gouden wiskundeboek te kopen, bedankt hij je voor het luisteren. Vervolgens drukt hij op een knopje, \nwaardoor je in de kelder van de ruïnes valt. Je kan wel mooi een gesprek voeren met een andere jongen \ndie heel erg van Feyenoord houdt, maar vervolgens ga je dood van de verveling.",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -426,8 +414,6 @@ rooms = {
 ##### nog aanpassen ####
   'zilveren boek' : {
     DESCRIPTION : "“Eigenlijk is dat zilveren boek leuker...”Je rent langs de troon van Jopie en pakt het boek. \nHet moment dat je het boek aanraakt voel je de kracht van de Fransen in je opkomen.",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -449,8 +435,6 @@ rooms = {
 
   'via het raam naar buiten' : {
     DESCRIPTION : "De snelste weg naar buiten is natuurlijk via het raam. Je doet het raam open en kijkt even, \n‘Het valt wel mee hoe hoog dit is.’ Denk je, je tuurt iets te ver over het randje en kukelt naar beneden. \nJe komt met je bips terecht op een legoblokje. Je schreeuwt het uit van de pijn, en door de schreeuw wordt Jopie weer wakker, \nwaarna hij zelf ook springt. Uiteindelijk heeft hij je toch te pakken.",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -458,8 +442,6 @@ rooms = {
 
   'nog even rondkijken in het lokaal' : {
     DESCRIPTION : "Je besluit om nog even rond te kijken in het rommelige lokaal van jopie. \n“Misschien liggen er nog wel waardevolle spullen die ik kan meenemen.” Denk je. \nJe ziet nog een paar wiskunde uitwerkingen liggen. Je denkt: “die kan ik nog wel voor wat geld aan bruggers verkopen.” \nOp dat moment wordt Jopie wakker, hij ziet dat zijn gouden boek weg is en dat jij in zijn lokaal \naan het rondkijken bent. Hij drukt op een knopje en je valt naar beneden. \n“En waag het niet om nog eens te komen!” roept hij je nog na. ",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -493,8 +475,6 @@ rooms = {
 
   'gebruik fiets' : {
     DESCRIPTION : "Je merkt dat Marcel simpelweg sneller is, maar je herinnert ineens dat Andy je een fiets had gegeven. \nJe tovert de fiets uit je broekzak en start met door de gangen fietsen. Je gaat de trap af, \nen komt dan weer Andy tegen. Hij blokkeert het pad en kijkt je heel boos aan. \n“Niet fietsen door de gangen!” Schreeuwt hij. Hij trapt je de school uit. “En niet meer terugkomen!” \nSchreeuwt hij. helaas heb je het boek niet kunnen redden. ",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -528,8 +508,6 @@ rooms = {
 
   'ontsnapping zilveren wiskundeboek' : {
     DESCRIPTION : "De rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ \nen “Ik hou van stroopwafels.” Maar je rent ontzettend snel langs hem. Je nadert de uitgang, \nmaar plotseling komt er een groepje mensen gewapend met baguettes en berets om de hoek kijken. \n“Prenez son noix!” Zegt een van hen. Ze komen op je afgerend en steken je neer met hun baguettes. \nHet is een zeer onprettige, arelaxende ervaring. ",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee'
@@ -537,8 +515,6 @@ rooms = {
 
   'ontsnapping gouden wiskundeboek' : {
     DESCRIPTION : "De rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ en “Ik hou van stroopwafels.” \nMaar je rent ontzettend snel langs hem. Je nadert de uitgang, maar plotseling staat Jopie in de weg. \n“Dus jij denkt dat je snel weg kan komen?! Nou nou zeg, je lijkt echt op David. \nWat ben ik toch ont-zet-tend blij met jou. Helaas stopt het hier echt, \nhierna ga ik denk ik wel genieten van mijn pensioen op een mooi strand, al hou ik helemaal niet van het strand.” \nJopie maakt zijn verhaal af, maar je was al langs hem gerend. Je rent door de fietsenstalling, \nzegt Andy even gedag en rent weg naar de horizon, met het gouden wiskundeboek onder je arm.",  
-    ITEMS : [],
-    DIRECTIONS : "",
     DEATH : 'nee',
     WIN : 'ja',
     VISITED : 'nee'
@@ -1144,5 +1120,5 @@ title_screen()
 # - health system???
 # - zinuitlijning tekst verbeteren
 # - aangepaste tijd voordat deathmenu getoont wordt
-# - rooms in aparte pagina
+# - rooms in aparte file
 # - doodkamers items en directions weghalen
