@@ -708,6 +708,25 @@ def get_options():
     print('Dit is niet een geldig antwoord. Probeer opnieuw.')
     get_menu()
 
+### DROP OPTIONS ###
+def drop_options():
+  option = input('> ')
+  if option.lower() in player.inventory:
+    player.inventory.remove(option.lower())
+    print(f'{option} is verwijderd uit je inventory')
+    #rooms[player.location][ITEMS].append(option)
+    time.sleep(1)
+    drop_item()
+  elif option.lower() == ('b'):
+    print_location()
+  elif option.lower() == ('back'):
+    print_location()
+  else:
+    print('Dit is niet een geldig antwoord. Probeer opnieuw.')
+    drop_options()
+
+
+
 ### MENU'S ###
 def title_screen():
   os.system('clear')
@@ -882,12 +901,13 @@ def get_menu():
     print('')
     print('+=' * 45)
     option = input('> ')
-    if option.lower == ('b'):
+    if option.lower() == ('b'):
       print_location()
-    elif option.lower == ('back'):
+    elif option.lower() == ('back'):
       print_location()
     else:
       print('vul aub een geldig antwoord in')
+      time.sleep(1)
       get_menu()
   else:
     print('In deze kamer liggen deze items:')
@@ -896,6 +916,37 @@ def get_menu():
     print('+=' * 45)
     print('typ de naam van het item dat je wilt oppakken, of typ b(back) om terug te gaan')
     get_options()
+
+### DROP ITEM ###
+def drop_item():
+  os.system('clear')
+  print('+=' * 45)
+  print('DROP ITEM')
+  print('+=' * 45)
+  print('')
+  if player.inventory == []:
+    print('Je hebt geen items in je inventory')
+    print('typ b(back) om terug te gaan')
+    print('')
+    print('+=' * 45)
+    option = input('> ')
+    if option.lower() == ('b'):
+      print_location()
+    elif option.lower() == ('back'):
+      print_location()
+    else:
+      print('vul aub een geldig antwoord in')
+      drop_item()
+  else:
+    print('Je hebt deze items:')
+    for x in player.inventory:
+      print ('-=- ' + x)
+    print('')
+    print('+=' * 45)
+    print('typ de naam van het item dat je wilt laten vallen, of typ b(back) om terug te gaan')
+    drop_options()
+
+
 
 def start_game():
   os.system('clear')
@@ -984,27 +1035,8 @@ def print_location():
 #########################################################
 #########################################################
 item = rooms[player.location][ITEMS]
-  
-def drop_item():
-  os.system('clear')
-  print('+=' * 45)
-  print('Je hebt deze items:')
-  print('-=-' + player.inventory)
-  print('\nWelk item wil je laten vallen?')
-  print('+=' * 45)
-  print('typ de naam van het item dat je wilt laten vallen, of typ b(back) om terug te gaan')
-  drop_options()
 
-def drop_options():
-  option = input('> ')
-  if option.lower() == (''):
-    player.inventory.remove()
-    rooms[player.location][ITEMS].append()
-  elif option.lower() == ('b'):
-    print_location()
-  else:
-    print('vul aub een geldig antwoord in')
-    drop_options()
+
 
 def inventory():
   os.system('clear')
