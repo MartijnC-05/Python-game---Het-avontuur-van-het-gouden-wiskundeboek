@@ -1036,19 +1036,35 @@ def print_location():
 #########################################################
 item = rooms[player.location][ITEMS]
 
-
-
 def inventory():
   os.system('clear')
   print('+=' * 45)
-  print('Je hebt de volgende items bij je:')
-  print(player.inventory)
-  #for x in self.inventory:
-    #print x.name
-  print('\nWat wil je doen')
+  print('INVENTORY')
   print('+=' * 45)
-  print('typ: d(drop item), b(back)')
-  inventory_options()
+  print('')
+  if player.inventory == []:
+    print ('Je inventory is nog leeg, ga naar een kamer en typ g(get) om een item op te pakken')
+    print ('typ b(back) om terug te gaan')
+    print('')
+    print('+=' * 45)
+    option = input("> ")
+    if option.lower() == ('b'):
+      print_location()
+    elif option.lower() == ('back'):
+      print_location()
+    else:
+      print('vul aub een geldig antwoord in')
+      inventory()
+  else:
+    print('Je hebt de volgende items bij je:')
+    for x in player.inventory:
+      print ('-=- ' + x)
+    print('')
+    print('\nWat wil je doen')
+    print('')
+    print('+=' * 45)
+    print('typ: d(drop item), b(back)')
+    inventory_options()
 
 def inventory_options():
   option = input('> ')
