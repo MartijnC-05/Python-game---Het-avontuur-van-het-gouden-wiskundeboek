@@ -694,18 +694,23 @@ def win_menu_selections():
 ### GET OPTIONS ###
 def get_options():
   option = input('> ')
-  if option.lower() in rooms[player.location][ITEMS]:
+  if option.lower() in (rooms[player.location][ITEMS]):
       player.inventory.append(option.lower())
       print(f'{option} is toegevoegd aan je inventory')
       #rooms[player.location][ITEMS].remove(option)
       time.sleep(1)
-      inventory()
+      get_menu()
   elif option.lower() == ('b'):
     print_location()
   elif option.lower() == ('back'):
     print_location()
+  elif option.lower() == ('i'):
+    inventory()
+  elif option.lower() == ('inventory'):
+    inventory()
   else:
-    print('Dit is niet een geldig antwoord. Probeer opnieuw.')
+    print('Dit is geen geldig antwoord. Probeer opnieuw.')
+    time.sleep(1)
     get_menu()
 
 ### DROP OPTIONS ###
@@ -725,6 +730,16 @@ def drop_options():
     print('Dit is niet een geldig antwoord. Probeer opnieuw.')
     drop_options()
 
+### INVENTORY OPTIONS ###
+def inventory_options():
+  option = input('> ')
+  if option.lower() == ('d'):
+    drop_item()
+  elif option.lower() == ('b'):
+    print_location()
+  else:
+    print('vul aub een geldig antwoord in')
+    inventory_options()
 
 
 ### MENU'S ###
@@ -914,7 +929,7 @@ def get_menu():
     print('-=- ' + str(rooms[player.location][ITEMS])) 
     print('')
     print('+=' * 45)
-    print('typ de naam van het item dat je wilt oppakken, of typ b(back) om terug te gaan')
+    print('typ de naam van het item dat je wilt oppakken, typ i(inventory) om je inventory te tonen \nof typ b(back) om terug te gaan')
     get_options()
 
 ### DROP ITEM ###
@@ -946,7 +961,36 @@ def drop_item():
     print('typ de naam van het item dat je wilt laten vallen, of typ b(back) om terug te gaan')
     drop_options()
 
-
+### INVENTORY ###
+def inventory():
+  os.system('clear')
+  print('+=' * 45)
+  print('INVENTORY')
+  print('+=' * 45)
+  print('')
+  if player.inventory == []:
+    print ('Je inventory is nog leeg, ga naar een kamer en typ g(get) om een item op te pakken')
+    print ('typ b(back) om terug te gaan')
+    print('')
+    print('+=' * 45)
+    option = input("> ")
+    if option.lower() == ('b'):
+      print_location()
+    elif option.lower() == ('back'):
+      print_location()
+    else:
+      print('vul aub een geldig antwoord in')
+      inventory()
+  else:
+    print('Je hebt de volgende items bij je:')
+    for x in player.inventory:
+      print ('-=- ' + x)
+    print('')
+    print('Wat wil je doen')
+    print('')
+    print('+=' * 45)
+    print('typ: d(drop item), b(back)')
+    inventory_options()
 
 def start_game():
   os.system('clear')
@@ -1032,53 +1076,6 @@ def print_location():
     print('+=' * 55)
     options()
 
-#########################################################
-#########################################################
-item = rooms[player.location][ITEMS]
-
-def inventory():
-  os.system('clear')
-  print('+=' * 45)
-  print('INVENTORY')
-  print('+=' * 45)
-  print('')
-  if player.inventory == []:
-    print ('Je inventory is nog leeg, ga naar een kamer en typ g(get) om een item op te pakken')
-    print ('typ b(back) om terug te gaan')
-    print('')
-    print('+=' * 45)
-    option = input("> ")
-    if option.lower() == ('b'):
-      print_location()
-    elif option.lower() == ('back'):
-      print_location()
-    else:
-      print('vul aub een geldig antwoord in')
-      inventory()
-  else:
-    print('Je hebt de volgende items bij je:')
-    for x in player.inventory:
-      print ('-=- ' + x)
-    print('')
-    print('\nWat wil je doen')
-    print('')
-    print('+=' * 45)
-    print('typ: d(drop item), b(back)')
-    inventory_options()
-
-def inventory_options():
-  option = input('> ')
-  if option.lower() == ('d'):
-    drop_item()
-  elif option.lower() == ('b'):
-    print_location()
-  else:
-    print('vul aub een geldig antwoord in')
-    inventory_options()
-
-#########################################################
-#########################################################
-
 ### OPTIONS ###
 def options():
   rooms[player.location][VISITED] = 'ja'
@@ -1134,11 +1131,9 @@ title_screen()
 ### NOG DOEN! ###
 
 # =+= ITEMS
-# - inventory tonen
-# - inventory item laten vallen
-# - items toevoegen
-# - item oppakken
+# - items uit kamer verwijderen of items aan kamer toevoegen
 # - item nodig om verder te komen
+# - probleem met letter in woord van items kamer toch aan inventory toevoegen
 
 # =-= EXTRA
 # - health system???
