@@ -377,7 +377,7 @@ rooms = {
     C : 'gebruik legoblokje',
     D : 'gebruik legoblokje',
     VISITED : 'nee',
-    REQUIRED : ''
+    REQUIRED : 'legoblokje'
   },
 
 # level 4
@@ -420,7 +420,7 @@ rooms = {
     C : 'gebruik code',
     D : 'gebruik code',
     VISITED : 'nee',
-    REQUIRED : ''
+    REQUIRED : 'briefje met code'
   },
 
   'lokaal van Jopie' : {
@@ -448,7 +448,7 @@ rooms = {
   'ik heb geen tijd voor dit verhaal' : {
     DESCRIPTION : "“Ik kom hier voor het gouden boek, ik heb geen tijd voor dit verhaal.” Je blik dwaalt af naar 2 glimmende boeken achter hem, \neen gouden boek wat erg lijkt op wiskunde, en een zilveren boek wat lijkt op Frans. Je schraapt met je nagels over het krijtbord \nom jopie tijdelijk uit te schakelen, het geluid is zo scherp dat je zelf ook bijna was uitgeschakeld. \nJe kunt nu snel naar het boek lopen, maar welk boek pak je?",  
     ITEMS : [],
-    DIRECTIONS : "A: “Ik kwam hier voor het gouden boek, ik pak het gouden boek!” \nB: “Eigenlijk is dat zilveren boek leuker...”",
+    DIRECTIONS : "Wat doe je? \nA: “Ik kwam hier voor het gouden boek, ik pak het gouden boek!” \nB: “Eigenlijk is dat zilveren boek leuker...”",
     DEATH : 'nee',
     WIN : 'nee',
     A : 'gouden boek',
@@ -462,8 +462,14 @@ rooms = {
 ##### nog aanpassen ####
   'zilveren boek' : {
     DESCRIPTION : "“Eigenlijk is dat zilveren boek leuker...”Je rent langs de troon van Jopie en pakt het boek. \nHet moment dat je het boek aanraakt voel je de kracht van de Fransen in je opkomen.",  
-    DEATH : 'ja',
+    ITEMS : ['zilveren boek'],
+    DIRECTIONS : "Wat doe je? \nA: Je gaat naar de gang \nB: Je gaat via het raam naar buiten \nC: Je kijkt nog even rond in het lokaal",
+    DEATH : 'nee',
     WIN : 'nee',
+    A : 'naar de gang',
+    B : 'via het raam naar buiten',
+    C : 'nog even rondkijken in het lokaal',
+    D : 'zilveren boek',
     VISITED : 'nee',
     REQUIRED : ''
   },
@@ -471,8 +477,8 @@ rooms = {
 #level 5
   'gouden boek' : {
     DESCRIPTION : "Je rent langs de troon van Jopie en pakt het boek. Het boek is best zwaar, dus je weet meteen dat het boek van puur goud is gemaakt \n Je hebt nu het boek te pakken, maar je moet nu nog zien te ontsnappen \nvoordat Jopie weer wakker wordt. Welke kant ga je op?",  
-    ITEMS : [],
-    DIRECTIONS : "\nA: Je gaat naar de gang \nB: Je gaat via het raam naar buiten \nC: Je kijkt nog even rond in het lokaal",
+    ITEMS : ['gouden wiskundeboek'],
+    DIRECTIONS : "Wat doe je? \nA: Je gaat naar de gang \nB: Je gaat via het raam naar buiten \nC: Je kijkt nog even rond in het lokaal",
     DEATH : 'nee',
     WIN : 'nee',
     A : 'naar de gang',
@@ -502,10 +508,10 @@ rooms = {
   'naar de gang' : {
     DESCRIPTION : "Je rent snel het lokaal uit, maar Jopie wordt net wakker. Hij ziet dat zijn boek weg is en dat jij in de deuropening staat. \n“Nou ja, dat had ik niet verwacht!” Zegt hij. “Maar goed, ik wil dat boek wel terug.” \nHij schraapt zijn keel. “MAAAAAARCEEEEEEEEEEEEL!” Schreeuwt hij. \nPlots komt een zeer brede man uit een ander lokaal gestormd. Je slikt puur van de schrik, \nen zet het op een rennen.",  
     ITEMS : [],
-    DIRECTIONS : "A: “Oh jeetje, snel weg hier.” \nB: gebruik fiets \nC: gebruik wafel",
+    DIRECTIONS : "Wat doe je? \nA: “Oh jeetje, snel weg hier.” \nB: gebruik fiets \nC: gebruik wafel",
     DEATH : 'nee',
     WIN : 'nee',
-    A : 'Oh jeetje, snel weg hier',
+    A : 'oh jeetje, snel weg hier',
     B : 'gebruik fiets',
     C : 'gebruik wafel',
     D : 'naar de gang',
@@ -532,7 +538,7 @@ rooms = {
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee',
-    REQUIRED : ''
+    REQUIRED : 'fiets'
   },
 
   'gebruik wafel' : {
@@ -546,7 +552,7 @@ rooms = {
     C : 'gebruik wafel',
     D : 'gebruik wafel',
     VISITED : 'nee',
-    REQUIRED : ''
+    REQUIRED : 'wafel'
   },
 
   'ontsnapping' : {
@@ -568,7 +574,7 @@ rooms = {
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee',
-    REQUIRED : ''
+    REQUIRED : 'zilveren boek'
   },
 
   'ontsnapping gouden wiskundeboek' : {
@@ -576,7 +582,7 @@ rooms = {
     DEATH : 'nee',
     WIN : 'ja',
     VISITED : 'nee',
-    REQUIRED : ''
+    REQUIRED : 'gouden wiskundeboek'
   },
 }
 
@@ -1094,7 +1100,7 @@ def opties1():
   if rooms[player.location][DEATH] == ('ja'):
     print('\n' + '+=' * 55)
     print('Game over')
-    time.sleep(10)
+    time.sleep(10) 
     death_menu()
   elif rooms[player.location][WIN] == ('ja'):
     print('\n' + '+=' * 55)
@@ -1194,8 +1200,12 @@ title_screen()
 # ITEMS
 # - item nodig om verder te komen
 # - als je in een item nodig kamer item niet oppakt kun je dat item niet meer krijgen
+# - 2e keer in item kamer = item weg, misschien item verwijderen uit???
+# - inventory leeg melding
+# - items in kamer als je dood gaat zijn weg # misschien droppen in de kamer waar je dood b
 
 # EXTRA
 # - zinuitlijning tekst verbeteren
 # - aangepaste tijd voordat deathmenu getoont wordt
 # - rooms in aparte file
+# - code naar VAA + geboortejaar?
