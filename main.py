@@ -3,6 +3,7 @@ import os
 import time
 from time import sleep
 
+
 ### PLAYER ###
 class player:
     def __init__(self):
@@ -25,6 +26,7 @@ B = 'b'
 C = 'c'
 D = 'd'
 VISITED = 'visited'
+REQUIRED = 'required'
 
 rooms = {
 #level 1
@@ -38,7 +40,8 @@ rooms = {
     B : 'achteringang',
     C : 'KJ plein',
     D : 'schoolplein',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'fietsenstalling' : {
@@ -51,14 +54,16 @@ rooms = {
     B : 'Ik kom mijn fiets ophalen, die roze daar',
     C : 'Ene Jopie heeft me gestuurd',
     D : 'fietsenstalling',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'Wat doe JIJ hier?' : {
     DESCRIPTION : "Andy stelt deze grap niet op prijs. Hij stuurt je meteen de fietsenstalling uit. \n“En niet meer terugkomen!” Schreeuwt hij je nog na. Nou, daar gaan je kansen om binnen te komen.",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'Ik kom mijn fiets ophalen, die roze daar' : {
@@ -71,7 +76,8 @@ rooms = {
     B : 'Ik kom mijn fiets ophalen, die roze daar',
     C : 'Ik kom mijn fiets ophalen, die roze daar',
     D : 'Ik kom mijn fiets ophalen, die roze daar',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'Ene Jopie heeft me gestuurd': {
@@ -84,7 +90,8 @@ rooms = {
     B : 'Ene Jopie heeft me gestuurd',
     C : 'Ene Jopie heeft me gestuurd',
     D : 'Ene Jopie heeft me gestuurd',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'achteringang' : {
@@ -97,7 +104,8 @@ rooms = {
     B : 'achteringang',
     C : 'achteringang',
     D : 'achteringang',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'KJ plein' : {
@@ -110,14 +118,16 @@ rooms = {
     B : 'KJ centrum',
     C : 'KJ plein',
     D : 'KJ plein',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'KJ centrum' : {
     DESCRIPTION : "Je zet 1 stap in het centrum, en wordt meteen overvallen door de bruggers. \nJe doet je best om terug te vechten, maar voor elke brugger die je neerslaat \nkomen er 3 meer uit de Albert Heijn lopen. Na een langdurige strijd overleef je het niet.",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
 #level 2
@@ -131,7 +141,8 @@ rooms = {
     B : 'aula',
     C : 'vleugel NT en G',
     D : 'schoolplein',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'trap' : {
@@ -144,14 +155,16 @@ rooms = {
     B : 'mediatheek',
     C : 'trap',
     D : 'trap',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'mediatheek' : {
     DESCRIPTION : "Je gaat de trap op richting de mediatheek. Je loopt nog langs lokaal 126, \nwaar een man met donkerblond haar achter een computer zit te klooien met google meet. \n‘Rare eend.’ Denk je. Je loopt door naar de mediatheek, waar je een zacht geluid \nvan een printer hoort. Het geluid wordt luider en luider, \ntotdat je de mediatheek zelf binnenloopt. Er is een enkele vrouw aanwezig, \nbezig met de printer. Ze draait zich direct om bij je eerste stap. \n‘Dus jij wilt hulp met printen?’ Vraagt ze. Je kan geen antwoord geven \nvoordat ze je al naar de printer heeft geleid. Vervolgens moet je printen \ntotdat je je laatste adem hebt gegeven.",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
     },  
 
   'aula' : {
@@ -164,11 +177,12 @@ rooms = {
     B : 'oude mannen',
     C : 'hal',
     D : 'aula',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'kantine' : {
-    DESCRIPTION : "Het is misschien een doodlopend einde, maar je kan toch een beetje rondkijken \nzonder lastig te worden gevallen. Er zijn een paar dingen die je opvallen, \nzoals een hendeltje van de kapotte panini machine, \nen een heerlijke wafel die bijna aan de datum is.",  
+    DESCRIPTION : "Er zijn een paar dingen die je opvallen, zoals een hendeltje van de kapotte panini machine, \nen een heerlijke wafel die bijna aan de datum is.",  
     ITEMS : ["hendeltje", "wafel"],
     DIRECTIONS : "je kunt: \nA: alleen terug naar de aula",
     DEATH : 'nee',
@@ -177,27 +191,44 @@ rooms = {
     B: 'kantine',
     C : 'kantine',
     D : 'kantine',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'oude mannen' : {
     DESCRIPTION : "Je loopt naar de oude mannen toe. Op het moment dat je aan komt lopen, \nklinkt er een krak. “Alle bingoballen nog aan toe!” Roept een van de twee uit. \nJe ziet dat de hendel van het bingorad is afgebroken. Een van de twee ziet je aan komen lopen, \nen begint meteen met praten. “Zeg, makker, jij daar, kun je ons even helpen?” \nJe hebt niet echt een keuze, dus je knikt ja. “Komt dat eens goed uit zeg! \nWij zijn Ome Henk en Ome Willem, en we houden van bingo. \nZoals je kunt zien hebben we een nieuw hendeltje nodig, kan je die voor ons zoeken?” \nJe knikt weer, je kan natuurlijk geen nee zeggen tegen zulke aardige mensen.",  
     ITEMS : [],
-    DIRECTIONS : "je kunt: \nA: alleen naar de aula toe",
+    DIRECTIONS : "Wat zeg je tegen Ome Henk en Ome Willem? \nA: Ik ga voor jullie op zoek \nB: Hier heb je de hendel",
     DEATH : 'nee',
     WIN : 'nee',
     A : 'aula',
-    B : 'oude mannen',
+    B : 'hier heb je de hendel',
     C : 'oude mannen',
     D : 'oude mannen',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
+  },
+
+  'hier heb je de hendel' : {
+    DESCRIPTION : "Daar heb je hem hoor! Geef hem, alsjeblieft, dan kunnen we weer verder.” \nJe overhandigt de hendel aan de oude mannen. Nadat je een gezellig potje bingo hebt gespeeld, \ngeeft Ome Willem je een legoblokje. “Die krijg je van ons cadeau, \nje kan altijd terugkomen om nog een potje te spelen!” ",
+    ITEMS : ["legoblokje"],
+    DIRECTIONS : "Je kunt: \nA: alleen naar de aula",
+    DEATH : 'nee',
+    WIN : "nee",
+    A : 'aula',
+    B : 'hier heb je de hendel',
+    C : 'hier heb je de hendel',
+    D : 'hier heb je de hendel',
+    VISITED : 'nee',
+    REQUIRED : 'hendeltje'
   },
 
   'vleugel NT en G': {
     DESCRIPTION : "Je loopt richting de vleugel van NT en G, maar voordat je er goed kan komen \nhoor je een explosie. Er komen 2 andere mensen uit een lokaal gerend, \ngevolgd door een derde man met een honkbalknuppel. De gewapende gek keert zich tot jou. \n‘Ga jij eens even ergens anders kletsen.’ Zegt hij, met een simpelweg enge glimlach op zijn gezicht. \nJe probeert weg te rennen, maar voordat je het weet heeft hij je knieschijven ingetimmerd. \nJe overleeft het niet. ",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
 #level 3
@@ -211,7 +242,8 @@ rooms = {
     B : 'verdieping 2',
     C : 'verdieping 3',
     D : 'hal',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'verdieping 1' : {
@@ -224,7 +256,8 @@ rooms = {
     B : 'ga naar het gestamp',
     C : 'verdieping 1',
     D : 'verdieping 1',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'benader de mensen' : {
@@ -237,7 +270,8 @@ rooms = {
     B : 'benader de mensen',
     C : 'benader de mensen',
     D : 'benader de mensen',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'ga naar het gestamp' : {
@@ -250,7 +284,8 @@ rooms = {
     B : 'ga naar het gestamp',
     C : 'ga naar het gestamp',
     D : 'ga naar het gestamp',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'verdieping 2' : {
@@ -263,7 +298,8 @@ rooms = {
     B : 'terug gaan',
     C : 'verdieping 2',
     D : 'verdieping 2',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'verder de gang in' : {
@@ -276,7 +312,8 @@ rooms = {
     B : 'verder de gang in',
     C : 'verder de gang in',
     D : 'verder de gang in',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'terug gaan' : {
@@ -289,7 +326,8 @@ rooms = {
     B : 'terug gaan',
     C : 'terug gaan',
     D : 'terug gaan',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'verdieping 3' : {
@@ -302,7 +340,8 @@ rooms = {
     B : 'lokalen',
     C : 'verdieping 3',
     D : 'verdieping 3',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'verder in de gang' : {
@@ -315,14 +354,16 @@ rooms = {
     B : 'gebruik legoblokje',
     C : 'verder in de gang',
     D : 'verder in de gang',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'Uh… Servus?' : {
     DESCRIPTION : "De gezichtsuitdrukking van de man verandert in eens. \nHet lijkt alsof hij gaat huilen, maar ineens start hij met opera zingen. \nNa een tijdje pakt hij je bij je kraag. 'Ik ga jou necare.' Ik spaar je de details, maar het laatste wat je hoorde was 'slaven en doden is echt mijn ding.' Het loopt niet goed af.",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'gebruik legoblokje' : {
@@ -335,7 +376,8 @@ rooms = {
     B : 'gebruik legoblokje',
     C : 'gebruik legoblokje',
     D : 'gebruik legoblokje',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
 # level 4
@@ -349,7 +391,8 @@ rooms = {
     B : 'gebruik code',
     C : 'ingang van het lokaal van jopie',
     D : 'ingang van het lokaal van jopie',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'welke code?' : {
@@ -362,7 +405,8 @@ rooms = {
     B : 'welke code?',
     C : 'welke code?',
     D : 'welke code?',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'gebruik code' : {
@@ -375,7 +419,8 @@ rooms = {
     B : 'gebruik code',
     C : 'gebruik code',
     D : 'gebruik code',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'lokaal van Jopie' : {
@@ -388,14 +433,16 @@ rooms = {
     B : 'ik heb geen tijd voor dit verhaal',
     C : 'lokaal van Jopie',
     D : 'lokaal van Jopie',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'verhaal afluisteren' : {
     DESCRIPTION : "Je wacht netjes Jopie zijn verhaal af. Nadat hij is afgesloten met zijn keuze om van vorstelijke salaris \neen gouden wiskundeboek te kopen, bedankt hij je voor het luisteren. Vervolgens drukt hij op een knopje, \nwaardoor je in de kelder van de ruïnes valt. Je kan wel mooi een gesprek voeren met een andere jongen \ndie heel erg van Feyenoord houdt, maar vervolgens ga je dood van de verveling.",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'ik heb geen tijd voor dit verhaal' : {
@@ -408,7 +455,8 @@ rooms = {
     B : 'zilveren boek',
     C : 'ik heb geen tijd voor dit verhaal',
     D : 'ik heb geen tijd voor dit verhaal',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
 ##### nog aanpassen ####
@@ -416,7 +464,8 @@ rooms = {
     DESCRIPTION : "“Eigenlijk is dat zilveren boek leuker...”Je rent langs de troon van Jopie en pakt het boek. \nHet moment dat je het boek aanraakt voel je de kracht van de Fransen in je opkomen.",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
 #level 5
@@ -430,21 +479,24 @@ rooms = {
     B : 'via het raam naar buiten',
     C : 'nog even rondkijken in het lokaal',
     D : 'gouden boek',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'via het raam naar buiten' : {
     DESCRIPTION : "De snelste weg naar buiten is natuurlijk via het raam. Je doet het raam open en kijkt even, \n‘Het valt wel mee hoe hoog dit is.’ Denk je, je tuurt iets te ver over het randje en kukelt naar beneden. \nJe komt met je bips terecht op een legoblokje. Je schreeuwt het uit van de pijn, en door de schreeuw wordt Jopie weer wakker, \nwaarna hij zelf ook springt. Uiteindelijk heeft hij je toch te pakken.",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'nog even rondkijken in het lokaal' : {
     DESCRIPTION : "Je besluit om nog even rond te kijken in het rommelige lokaal van jopie. \n“Misschien liggen er nog wel waardevolle spullen die ik kan meenemen.” Denk je. \nJe ziet nog een paar wiskunde uitwerkingen liggen. Je denkt: “die kan ik nog wel voor wat geld aan bruggers verkopen.” \nOp dat moment wordt Jopie wakker, hij ziet dat zijn gouden boek weg is en dat jij in zijn lokaal \naan het rondkijken bent. Hij drukt op een knopje en je valt naar beneden. \n“En waag het niet om nog eens te komen!” roept hij je nog na. ",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'naar de gang' : {
@@ -457,7 +509,8 @@ rooms = {
     B : 'gebruik fiets',
     C : 'gebruik wafel',
     D : 'naar de gang',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'oh jeetje, snel weg hier' : {
@@ -470,14 +523,16 @@ rooms = {
     B : 'oh jeetje, snel weg hier',
     C : 'oh jeetje, snel weg hier',
     D : 'oh jeetje, snel weg hier',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'gebruik fiets' : {
     DESCRIPTION : "Je merkt dat Marcel simpelweg sneller is, maar je herinnert ineens dat Andy je een fiets had gegeven. \nJe tovert de fiets uit je broekzak en start met door de gangen fietsen. Je gaat de trap af, \nen komt dan weer Andy tegen. Hij blokkeert het pad en kijkt je heel boos aan. \n“Niet fietsen door de gangen!” Schreeuwt hij. Hij trapt je de school uit. “En niet meer terugkomen!” \nSchreeuwt hij. helaas heb je het boek niet kunnen redden. ",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'gebruik wafel' : {
@@ -490,7 +545,8 @@ rooms = {
     B : 'gebruik wafel',
     C : 'gebruik wafel',
     D : 'gebruik wafel',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'ontsnapping' : {
@@ -503,21 +559,24 @@ rooms = {
     B : 'ontsnapping zilveren wiskundeboek',
     C : 'ontsnapping',
     D : 'ontsnapping',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'ontsnapping zilveren wiskundeboek' : {
     DESCRIPTION : "De rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ \nen “Ik hou van stroopwafels.” Maar je rent ontzettend snel langs hem. Je nadert de uitgang, \nmaar plotseling komt er een groepje mensen gewapend met baguettes en berets om de hoek kijken. \n“Prenez son noix!” Zegt een van hen. Ze komen op je afgerend en steken je neer met hun baguettes. \nHet is een zeer onprettige, arelaxende ervaring. ",  
     DEATH : 'ja',
     WIN : 'nee',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 
   'ontsnapping gouden wiskundeboek' : {
     DESCRIPTION : "De rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ en “Ik hou van stroopwafels.” \nMaar je rent ontzettend snel langs hem. Je nadert de uitgang, maar plotseling staat Jopie in de weg. \n“Dus jij denkt dat je snel weg kan komen?! Nou nou zeg, je lijkt echt op David. \nWat ben ik toch ont-zet-tend blij met jou. Helaas stopt het hier echt, \nhierna ga ik denk ik wel genieten van mijn pensioen op een mooi strand, al hou ik helemaal niet van het strand.” \nJopie maakt zijn verhaal af, maar je was al langs hem gerend. Je rent door de fietsenstalling, \nzegt Andy even gedag en rent weg naar de horizon, met het gouden wiskundeboek onder je arm.",  
     DEATH : 'nee',
     WIN : 'ja',
-    VISITED : 'nee'
+    VISITED : 'nee',
+    REQUIRED : ''
   },
 }
 
@@ -902,7 +961,8 @@ def get_menu():
       get_menu()
   else:
     print('In deze kamer liggen deze items:')
-    print('-=- ' + str(rooms[player.location][ITEMS])) 
+    for x in rooms[player.location][ITEMS]:
+      print ('-=- ' + x)
     print('')
     print('+=' * 45)
     print('typ de naam van het item dat je wilt oppakken, typ i(inventory) om je inventory te tonen \nof typ b(back) om terug te gaan')
@@ -997,6 +1057,7 @@ def start_game():
 
   print_location()
 
+benodigdheden = rooms[player.location][REQUIRED]
 
 ### print location ###
 def print_location():
@@ -1004,6 +1065,22 @@ def print_location():
   print('+=' * 55)
   print(player.location.upper())
 
+  if rooms[player.location][REQUIRED] == (''):
+    opties1()
+  elif rooms[player.location][REQUIRED] in player.inventory:
+    player.inventory.remove(rooms[player.location][REQUIRED])
+    opties1()
+  else:
+    print('\nJe hebt nog niet de benodigde items om verder te gaan')
+    print('je hebt nodig: ' + rooms[player.location][REQUIRED])
+    print('\nGa terug naar de hal om het juiste item te vinden')
+    print('')
+    print('+=' * 55)
+    time.sleep(5)
+    player.location = 'hal'
+    print_location()
+    
+def opties1():
   if rooms[player.location][VISITED] == ('ja'):
     print('\n' + rooms[player.location][DESCRIPTION])
   elif player.animations == 'lang':
@@ -1101,12 +1178,13 @@ def options():
     move_dest = rooms[player.location][D]
     move_player(move_dest)
   else:
-    print('vul aub een geldig antwoord in')
+    print('\nvul aub een geldig antwoord in')
     options()
 
 def move_player(move_dest):
 	player.location = move_dest
 	print_location()
+    
 
 
 title_screen()
@@ -1115,10 +1193,9 @@ title_screen()
 
 # ITEMS
 # - item nodig om verder te komen
+# - als je in een item nodig kamer item niet oppakt kun je dat item niet meer krijgen
 
 # EXTRA
-# - health system???
 # - zinuitlijning tekst verbeteren
 # - aangepaste tijd voordat deathmenu getoont wordt
 # - rooms in aparte file
-# - doodkamers items en directions weghalen
