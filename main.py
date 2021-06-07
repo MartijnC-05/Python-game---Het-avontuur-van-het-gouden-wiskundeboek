@@ -646,4 +646,4 @@ title_screen()
 # - items niet met kamers
 # - while loop
 
-
+# pipo de clown
