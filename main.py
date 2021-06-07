@@ -6,6 +6,7 @@ import time
 from time import sleep
 from rooms import *
 
+# zie je dit?
 
 ### PLAYER ###
 class player:
