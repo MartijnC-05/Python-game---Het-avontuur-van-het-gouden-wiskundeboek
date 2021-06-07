@@ -1074,7 +1074,6 @@ def print_location():
   if rooms[player.location][REQUIRED] == (''):
     opties1()
   elif rooms[player.location][REQUIRED] in player.inventory:
-    player.inventory.remove(rooms[player.location][REQUIRED])
     opties1()
   else:
     print('\nJe hebt nog niet de benodigde items om verder te gaan')
@@ -1162,10 +1161,8 @@ def options():
   elif option.lower() == ('s'):
     game_settings_menu()
   elif option.lower() == ('inventory'):
-    print('dit wordt de inventory')
     inventory()
   elif option.lower() == ('i'):
-    print('dit wordt de inventory')
     inventory()
   elif option.lower() == ('get'):
     get_menu()
@@ -1198,14 +1195,17 @@ title_screen()
 ### NOG DOEN! ###
 
 # ITEMS
-# - item nodig om verder te komen
 # - als je in een item nodig kamer item niet oppakt kun je dat item niet meer krijgen
-# - 2e keer in item kamer = item weg, misschien item verwijderen uit???
-# - inventory leeg melding
-# - items in kamer als je dood gaat zijn weg # misschien droppen in de kamer waar je dood b
+# - items in kamer als je dood gaat zijn weg # misschien droppen in de kamer waar je dood bent gegaan of in de hal --> mijn voorkeur is hal
 
 # EXTRA
-# - zinuitlijning tekst verbeteren
-# - aangepaste tijd voordat deathmenu getoont wordt
-# - rooms in aparte file
-# - code naar VAA + geboortejaar?
+# - zinuitlijning tekst verbeteren !
+# - aangepaste tijd voordat deathmenu getoont wordt !
+# - rooms in aparte file ?
+# - code naar VAA + geboortejaar ?
+
+# WAT DOEN WE?
+# - items uit inventory halen als gebruikt --> kamer niet meer in dus als daar items zijn ben je die kwijt, maar item is wel gebruikt
+# - gaan we de rooms in een aparte file doen, ik weet hoe het werkt, maar de code moet dan helemaal worden aangepast
+# - doen we het einde met rooms of toch gewoon programmeren --> programmeren is makkelijker, maar het neemt wel veel meer regels in beslag
+# - 
