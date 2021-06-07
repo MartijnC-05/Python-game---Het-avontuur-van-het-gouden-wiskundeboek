@@ -1,5 +1,3 @@
-# Ome Henk en Ome Willem zijn cool
-
 import sys
 import os
 import time
