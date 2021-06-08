@@ -11,7 +11,7 @@ class player:
         self.name = ''
         self.health = 1 
         self.location = 'schoolplein'
-        self.inventory = []
+        self.inventory = ['briefje met code', 'wafel']
         self.animations = 'kort'
 player = player()
 

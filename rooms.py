@@ -443,7 +443,6 @@ rooms = {
     REQUIRED : ''
   },
 
-##### nog aanpassen ####
   'zilveren boek' : {
     DESCRIPTION : "“Eigenlijk is dat zilveren boek leuker...”Je rent langs de troon van Jopie en pakt het boek. \nHet moment dat je het boek aanraakt voel je de kracht van de Fransen in je opkomen.",  
     ITEMS : ['zilveren boek'],
@@ -530,42 +529,12 @@ rooms = {
     ITEMS : [],
     DIRECTIONS : "je kunt: \nA: alleen maar naar de ontsnapping",
     DEATH : 'nee',
-    WIN : 'nee',
+    WIN : 'ja',
     A : 'ontsnapping',
     B : 'gebruik wafel',
     C : 'gebruik wafel',
     D : 'gebruik wafel',
     VISITED : 'nee',
     REQUIRED : 'wafel'
-  },
-
-  'ontsnapping' : {
-    DESCRIPTION : "Je rent snel via de trap naar beneden, maar als je naar buiten wilt rennen komt de rector om de hoek lopen.",  
-    ITEMS : [],
-    DIRECTIONS : "Wat doe je? \nA: Als je het gouden wiskundeboek hebt \nB: als je het zilveren wiskundeboek hebt",
-    DEATH : 'nee',
-    WIN : 'nee',
-    A : 'ontsnapping gouden wiskundeboek',
-    B : 'ontsnapping zilveren wiskundeboek',
-    C : 'ontsnapping',
-    D : 'ontsnapping',
-    VISITED : 'nee',
-    REQUIRED : ''
-  },
-
-  'ontsnapping zilveren wiskundeboek' : {
-    DESCRIPTION : "De rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ \nen “Ik hou van stroopwafels.” Maar je rent ontzettend snel langs hem. Je nadert de uitgang, \nmaar plotseling komt er een groepje mensen gewapend met baguettes en berets om de hoek kijken. \n“Prenez son noix!” Zegt een van hen. Ze komen op je afgerend en steken je neer met hun baguettes. \nHet is een zeer onprettige, arelaxende ervaring. ",  
-    DEATH : 'ja',
-    WIN : 'nee',
-    VISITED : 'nee',
-    REQUIRED : 'zilveren boek'
-  },
-
-  'ontsnapping gouden wiskundeboek' : {
-    DESCRIPTION : "De rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ en “Ik hou van stroopwafels.” \nMaar je rent ontzettend snel langs hem. Je nadert de uitgang, maar plotseling staat Jopie in de weg. \n“Dus jij denkt dat je snel weg kan komen?! Nou nou zeg, je lijkt echt op David. \nWat ben ik toch ont-zet-tend blij met jou. Helaas stopt het hier echt, \nhierna ga ik denk ik wel genieten van mijn pensioen op een mooi strand, al hou ik helemaal niet van het strand.” \nJopie maakt zijn verhaal af, maar je was al langs hem gerend. Je rent door de fietsenstalling, \nzegt Andy even gedag en rent weg naar de horizon, met het gouden wiskundeboek onder je arm.",  
-    DEATH : 'nee',
-    WIN : 'ja',
-    VISITED : 'nee',
-    REQUIRED : 'gouden wiskundeboek'
   },
 }
