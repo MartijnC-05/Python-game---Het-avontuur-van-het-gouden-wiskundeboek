@@ -4,7 +4,6 @@ import time
 from time import sleep
 from rooms import *
 
-# zie je dit?
 
 ### PLAYER ###
 class player:
@@ -157,7 +156,8 @@ def death_menu_selections():
 ### WIN MENU SELECTIONS ###
 def win_menu_selections():
   player.location='schoolplein'
-  player.inventory = ''
+  player.inventory = []
+  #ITEMS NOG TERUG NAAR OORSPRONKELIJKE KAMER!!!
   option = input ("> ")
   if option.lower() == ("ja"):
     title_screen()
@@ -469,6 +469,54 @@ def inventory():
     print('typ: d(drop item), b(back)')
     inventory_options()
 
+# ONTSNAPPING #
+# nog met animaties kijken #
+def ontsnapping():
+  os.system('clear')
+  print('+=' * 55)
+  print('ONTSNAPPING')
+  print('+=' * 55)
+  print("\nJe rent snel via de trap naar beneden, maar als je naar buiten wilt rennen komt de rector om de hoek lopen.")  
+
+  if 'zilveren boek' in player.inventory:
+    print("\nDe rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ \nen “Ik hou van stroopwafels.” Maar je rent ontzettend snel langs hem. Je nadert de uitgang, \nmaar plotseling komt er een groepje mensen gewapend met baguettes en berets om de hoek kijken. \n“Prenez son noix!” Zegt een van hen. Ze komen op je afgerend en steken je neer met hun baguettes. \nHet is een zeer onprettige, arelaxende ervaring. ")
+    print('')
+    print('+=' * 55)
+    print('game over, typ enter op door te gaan')
+    ontsnapping_death()
+
+  elif 'gouden wiskundeboek' in player.inventory:
+    print("\nDe rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ en “Ik hou van stroopwafels.” \nMaar je rent ontzettend snel langs hem. Je nadert de uitgang, maar plotseling staat Jopie in de weg. \n“Dus jij denkt dat je snel weg kan komen?! Nou nou zeg, je lijkt echt op David. \nWat ben ik toch ont-zet-tend blij met jou. Helaas stopt het hier echt, \nhierna ga ik denk ik wel genieten van mijn pensioen op een mooi strand, al hou ik helemaal niet van het strand.” \nJopie maakt zijn verhaal af, maar je was al langs hem gerend. Je rent door de fietsenstalling, \nzegt Andy even gedag en rent weg naar de horizon, met het gouden wiskundeboek onder je arm.")
+    print('')
+    print('+=' * 55)
+    print("typ enter om verder te gaan")
+    ontsnapping_win()
+
+  else:
+    print('\nBen je nou echt vergeten het boek mee te nemen, dat is natuurlijk niet zo slim, je gaat weer terug naar de hal')
+    print('')
+    print('+=' * 55)
+    time.sleep(5)
+    player.location = 'hal'
+    print_location()
+
+# ontsnappings opties
+def ontsnapping_win():
+  option = input()
+  if option.lower() == (""):
+    win_menu()    
+  else:
+    print('vul aub een geldig antwoord in')
+    ontsnapping_win()
+
+def ontsnapping_death():
+  option = input()
+  if option.lower() == (""):
+    death_menu
+  else:
+    print('vul aub een geldig antwoord in')
+    ontsnapping_death()
+
 def start_game():
   os.system('clear')
   print('############################################################')
@@ -533,7 +581,6 @@ def opties1():
     print('\n' + rooms[player.location][DESCRIPTION])
     opties2()
   
-# misschien moet hier nog iets komen
 def opties2():
   if rooms[player.location][DEATH] == ('ja'):
     print('\n' + '+=' * 55)
@@ -546,7 +593,7 @@ def opties2():
   elif rooms[player.location][WIN] == ('ja'):
     print('\n' + '+=' * 55)
     time.sleep(10)
-    win_menu()
+    ontsnapping()
   else:
     if rooms[player.location][ITEMS] == []:
       if rooms[player.location][VISITED] == ('ja'):
@@ -637,13 +684,10 @@ title_screen()
 
 # ITEMS
 # - weggooi items (wafel, lego, hendel)
+# - items na winnen weer op oorspronkelijke locatie
+#
 
 # EXTRA
 # - eindes !!!!!!!!!!!
 # - zinuitlijning en tekst verbeteren ! - BRENDAN
-# - aangepaste tijd voordat deathmenu getoont wordt !
-# - rooms in aparte file ?
-# - items niet met kamers
 # - while loop
-
-# pipo de clown
