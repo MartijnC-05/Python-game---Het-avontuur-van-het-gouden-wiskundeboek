@@ -260,9 +260,12 @@ def help_menu():
   print('#        en h (help) typen om te stoppen                   #')
   print('#        of dit menu opnieuw te tonen                      #')
   print('#                                                          #')
+  print('# -=- Typ s(settings) om animaties lang of                 #')
+  print('#        kort af te spelen                                 #')
+  print('#                                                          #')
   print('# -=- Veel plezier met het spelen!                         #')
   print('#                                                          #')
-  print('#        Typ Menu om terug naar het menu te gaan           #')
+  print('#        Typ b(back) om terug naar het menu te gaan        #')
   print('############################################################')
   print('#         -=- gemaakt door Brendan en Martijn -=-          #')
   print('############################################################')
@@ -319,6 +322,9 @@ def game_help_menu():
   print('# -=- Je kunt altijd tijdens het spelen q (quit)           #')
   print('#        en h (help) typen om te stoppen                   #')
   print('#        of dit menu opnieuw te tonen                      #')
+  print('#                                                          #')
+  print('# -=- Typ s(settings) om animaties lang of                 #')
+  print('#        kort af te spelen                                 #')
   print('#                                                          #')
   print('# -=- Veel plezier met het spelen!                         #')
   print('#                                                          #')
@@ -687,5 +693,3 @@ title_screen()
 # - zinuitlijning en tekst verbeteren ! - BRENDAN
 # - while loop
 # - animaties bij win - MARTIJN
-# - help menu teksten aanpassen
-# - animaties omschrijving tonen
