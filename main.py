@@ -11,7 +11,7 @@ class player:
         self.name = ''
         self.health = 1 
         self.location = 'schoolplein'
-        self.inventory = ['briefje met code', 'wafel']
+        self.inventory = []
         self.animations = 'kort'
 player = player()
 
@@ -576,17 +576,14 @@ def print_location():
 def opties1():
   if rooms[player.location][VISITED] == ('ja'):
     print('\n' + rooms[player.location][DESCRIPTION])
-    opties2()
   elif player.animations == 'lang':
     for x in ('\n' + rooms[player.location][DESCRIPTION] + '\n'):
       sleep(0.03)
       print(x, end='', flush=True)
-      opties2()
   else:
     print('\n' + rooms[player.location][DESCRIPTION])
-    opties2()
   
-def opties2():
+
   if rooms[player.location][DEATH] == ('ja'):
     print('\n' + '+=' * 55)
     print('Game over, typ enter om verder te gaan')
@@ -689,4 +686,6 @@ title_screen()
 
 # - zinuitlijning en tekst verbeteren ! - BRENDAN
 # - while loop
-# - animaties bij win 
+# - animaties bij win - MARTIJN
+# - help menu teksten aanpassen
+# - animaties omschrijving tonen
