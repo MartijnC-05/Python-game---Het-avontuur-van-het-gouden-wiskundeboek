@@ -10,8 +10,8 @@ class player:
     def __init__(self):
         self.name = ''
         self.health = 1 
-        self.location = 'schoolplein'
-        self.inventory = []
+        self.location = 'naar de gang'
+        self.inventory = ['gouden wiskundeboek', 'wafel']
         self.animations = 'kort'
 player = player()
 
@@ -481,35 +481,78 @@ def inventory():
     inventory_options()
 
 # ONTSNAPPING #
-# nog met animaties kijken #
+
+ontsnapping_tekst1 = "\nJe rent snel via de trap naar beneden, maar als je naar buiten wilt rennen komt de rector om de hoek lopen." 
+ontsnapping_tekst2 = "\nDe rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ \nen “Ik hou van stroopwafels.” Maar je rent ontzettend snel langs hem. Je nadert de uitgang, \nmaar plotseling komt er een groepje mensen gewapend met baguettes en berets om de hoek kijken. \n“Prenez son noix!” Zegt een van hen. Ze komen op je afgerend en steken je neer met hun baguettes. \nHet is een zeer onprettige, arelaxende ervaring. "
+ontsnapping_tekst3 = "\nDe rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ en “Ik hou van stroopwafels.” \nMaar je rent ontzettend snel langs hem. Je nadert de uitgang, maar plotseling staat Jopie in de weg. \n“Dus jij denkt dat je snel weg kan komen?! Nou nou zeg, je lijkt echt op David. \nWat ben ik toch ont-zet-tend blij met jou. Helaas stopt het hier echt, \nhierna ga ik denk ik wel genieten van mijn pensioen op een mooi strand, al hou ik helemaal niet van het strand.” \nJopie maakt zijn verhaal af, maar je was al langs hem gerend. Je rent door de fietsenstalling, \nzegt Andy even gedag en rent weg naar de horizon, met het gouden wiskundeboek onder je arm."
+ontsnapping_tekst4 = '\nBen je nou echt vergeten het boek mee te nemen? Dat is natuurlijk niet zo slim, je gaat weer terug naar de hal'
+
 def ontsnapping():
   os.system('clear')
   print('+=' * 55)
   print('ONTSNAPPING')
   print('+=' * 55)
-  print("\nJe rent snel via de trap naar beneden, maar als je naar buiten wilt rennen komt de rector om de hoek lopen.")  
 
+  if player.animations == 'lang':
+    for x in ontsnapping_tekst1:
+      sleep(0.03)
+      print(x, end='', flush=True)
+      ontsnapping1()
+  else:
+    print(ontsnapping_tekst1)
+    ontsnapping1()
+ 
+def ontsnapping1():
   if 'zilveren boek' in player.inventory:
-    print("\nDe rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ \nen “Ik hou van stroopwafels.” Maar je rent ontzettend snel langs hem. Je nadert de uitgang, \nmaar plotseling komt er een groepje mensen gewapend met baguettes en berets om de hoek kijken. \n“Prenez son noix!” Zegt een van hen. Ze komen op je afgerend en steken je neer met hun baguettes. \nHet is een zeer onprettige, arelaxende ervaring. ")
-    print('')
-    print('+=' * 55)
-    print('game over, typ enter om door te gaan')
-    ontsnapping_death()
+    if player.animations == 'lang':
+      for x in (ontsnapping_tekst2):
+        sleep(0.03)
+        print(x, end='', flush=True)
+        print('')
+        print('+=' * 55)
+        print('game over, typ enter om door te gaan')
+        ontsnapping_death()
+    else:
+      print(ontsnapping_tekst2)
+      print('')
+      print('+=' * 55)
+      print('game over, typ enter om door te gaan')
+      ontsnapping_death()
 
   elif 'gouden wiskundeboek' in player.inventory:
-    print("\nDe rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ en “Ik hou van stroopwafels.” \nMaar je rent ontzettend snel langs hem. Je nadert de uitgang, maar plotseling staat Jopie in de weg. \n“Dus jij denkt dat je snel weg kan komen?! Nou nou zeg, je lijkt echt op David. \nWat ben ik toch ont-zet-tend blij met jou. Helaas stopt het hier echt, \nhierna ga ik denk ik wel genieten van mijn pensioen op een mooi strand, al hou ik helemaal niet van het strand.” \nJopie maakt zijn verhaal af, maar je was al langs hem gerend. Je rent door de fietsenstalling, \nzegt Andy even gedag en rent weg naar de horizon, met het gouden wiskundeboek onder je arm.")
-    print('')
-    print('+=' * 55)
-    print("typ enter om verder te gaan")
-    ontsnapping_win()
+    if player.animations == 'lang':
+      for x in (ontsnapping_tekst3):
+        sleep(0.03)
+        print(x, end='', flush=True)
+        print('')
+        print('+=' * 55)
+        print("typ enter om verder te gaan")
+        ontsnapping_win()
+    else:
+      print(ontsnapping_tekst3)
+      print('')
+      print('+=' * 55)
+      print("typ enter om verder te gaan")
+      ontsnapping_win()
 
   else:
-    print('\nBen je nou echt vergeten het boek mee te nemen? Dat is natuurlijk niet zo slim, je gaat weer terug naar de hal')
-    print('')
-    print('+=' * 55)
-    time.sleep(5)
-    player.location = 'hal'
-    print_location()
+    if player.animations == 'lang':
+      for x in (ontsnapping_tekst4):
+        sleep(0.03)
+        print(x, end='', flush=True)
+        print('')
+        print('+=' * 55)
+        time.sleep(1)
+        player.location = 'hal'
+        print_location()
+
+    else:
+      print(ontsnapping_tekst3)
+      print('')
+      print('+=' * 55)
+      time.sleep(5)
+      player.location = 'hal'
+      print_location()
 
 # ontsnappings opties
 def ontsnapping_win():
