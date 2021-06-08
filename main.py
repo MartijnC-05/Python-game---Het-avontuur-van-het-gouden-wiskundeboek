@@ -157,7 +157,12 @@ def death_menu_selections():
 def win_menu_selections():
   player.location='schoolplein'
   player.inventory = []
-  #ITEMS NOG TERUG NAAR OORSPRONKELIJKE KAMER!!!
+  rooms['Ik kom mijn fiets ophalen, die roze daar'][ITEMS] = ['fiets']
+  rooms['kantine'][ITEMS] = ["hendeltje", "wafel"]
+  rooms['hier heb je de hendel'][ITEMS] = ['legoblokje']
+  rooms['ga naar het gestamp'][ITEMS] = ['briefje met code']
+  rooms['zilveren boek'][ITEMS] = ['zilveren boek']
+  rooms['gouden boek'][ITEMS] = ['gouden wiskundeboek']
   option = input ("> ")
   if option.lower() == ("ja"):
     title_screen()
@@ -482,7 +487,7 @@ def ontsnapping():
     print("\nDe rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ \nen “Ik hou van stroopwafels.” Maar je rent ontzettend snel langs hem. Je nadert de uitgang, \nmaar plotseling komt er een groepje mensen gewapend met baguettes en berets om de hoek kijken. \n“Prenez son noix!” Zegt een van hen. Ze komen op je afgerend en steken je neer met hun baguettes. \nHet is een zeer onprettige, arelaxende ervaring. ")
     print('')
     print('+=' * 55)
-    print('game over, typ enter op door te gaan')
+    print('game over, typ enter om door te gaan')
     ontsnapping_death()
 
   elif 'gouden wiskundeboek' in player.inventory:
@@ -493,7 +498,7 @@ def ontsnapping():
     ontsnapping_win()
 
   else:
-    print('\nBen je nou echt vergeten het boek mee te nemen, dat is natuurlijk niet zo slim, je gaat weer terug naar de hal')
+    print('\nBen je nou echt vergeten het boek mee te nemen? Dat is natuurlijk niet zo slim, je gaat weer terug naar de hal')
     print('')
     print('+=' * 55)
     time.sleep(5)
@@ -512,7 +517,7 @@ def ontsnapping_win():
 def ontsnapping_death():
   option = input()
   if option.lower() == (""):
-    death_menu
+    death_menu()
   else:
     print('vul aub een geldig antwoord in')
     ontsnapping_death()
@@ -682,12 +687,6 @@ title_screen()
 
 ### NOG DOEN! ###
 
-# ITEMS
-# - weggooi items (wafel, lego, hendel)
-# - items na winnen weer op oorspronkelijke locatie
-#
-
-# EXTRA
-# - eindes !!!!!!!!!!!
 # - zinuitlijning en tekst verbeteren ! - BRENDAN
 # - while loop
+# - animaties bij win 
