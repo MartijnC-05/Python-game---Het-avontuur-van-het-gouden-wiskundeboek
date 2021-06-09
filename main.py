@@ -3,6 +3,7 @@ import os
 import time
 from time import sleep
 from rooms import *
+from logo import *
 
 
 ### PLAYER ###
@@ -128,8 +129,7 @@ def stop_menu_selections():
 def game_stop_menu_selections():
   option = input("> ")
   if option.lower() == ("ja"):
-    os.system('clear')
-    sys.exit
+    logo()
   elif option.lower() == ("nee"):
     print_location()
   else:
