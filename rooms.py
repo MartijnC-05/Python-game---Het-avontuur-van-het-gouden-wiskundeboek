@@ -331,7 +331,7 @@ rooms = {
   'verder in de gang' : {
     DESCRIPTION : "Je besluit om verder de gang in te lopen. Je loopt eerst langs een lokaal waar allemaal mensen \ncroissants en baguettes aan het eten zijn met een zeer arelaxend muziekje op de achtergrond. \nAls je dan verder de gang in loopt zie je een dame die heel aandachtig aan het kijken is \nnaar naakte beelden. 'Vreemd.' Denk je, maar je loopt toch door. \nTenslotte kom je aan bij het lokaal waar het geluid vandaan kwam. Je probeert het lokaal in te kijken, \nmaar er sprint een huilende brugger uit het lokaal, gevolgd door een schreeuwende man. \nHet geluid is werkelijk oorverdovend, maar veel tijd voor zeuren heb je niet. \nDe man kijkt direct jouw kant op. 'Vertaal jij eens een gerundivum!' \nHij knijpt zijn ogen tot spleetjes, dit is wel echt serieus.",  
     ITEMS : [],
-    DIRECTIONS : "Wat zeg je? \nA: 'Uh… Servus? \nB: gebruik legoblokje (alleen beschikbaar als je een legoblokje hebt)	",
+    DIRECTIONS : "Wat zeg je? \nA: 'Uh… Servus? \nB: gebruik legoblokje",
     DEATH : 'nee',
     WIN : 'nee',
     A : 'Uh… Servus?',
@@ -430,7 +430,7 @@ rooms = {
   },
 
   'ik heb geen tijd voor dit verhaal' : {
-    DESCRIPTION : "“Ik kom hier voor het gouden boek, ik heb geen tijd voor dit verhaal.” Je blik dwaalt af naar 2 glimmende boeken achter hem, \neen gouden boek wat erg lijkt op wiskunde, en een zilveren boek wat lijkt op Frans. Je schraapt met je nagels over het krijtbord \nom jopie tijdelijk uit te schakelen, het geluid is zo scherp dat je zelf ook bijna was uitgeschakeld. \nJe kunt nu snel naar het boek lopen, maar welk boek pak je?",  
+    DESCRIPTION : "“Ik kom hier voor het gouden boek, ik heb geen tijd voor dit verhaal.” \nJe blik dwaalt af naar 2 glimmende boeken achter hem, \neen gouden boek wat erg lijkt op wiskunde, en een zilveren boek wat lijkt op Frans. Je schraapt met je nagels over het krijtbord \nom jopie tijdelijk uit te schakelen, het geluid is zo scherp dat je zelf ook bijna was uitgeschakeld. \nJe kunt nu snel naar het boek lopen, maar welk boek pak je?",  
     ITEMS : [],
     DIRECTIONS : "Wat doe je? \nA: “Ik kwam hier voor het gouden boek, ik pak het gouden boek!” \nB: “Eigenlijk is dat zilveren boek leuker...”",
     DEATH : 'nee',
@@ -459,7 +459,7 @@ rooms = {
 
 #level 5
   'gouden boek' : {
-    DESCRIPTION : "Je rent langs de troon van Jopie en pakt het boek. Het boek is best zwaar, dus je weet meteen dat het boek van puur goud is gemaakt \n Je hebt nu het boek te pakken, maar je moet nu nog zien te ontsnappen \nvoordat Jopie weer wakker wordt. Welke kant ga je op?",  
+    DESCRIPTION : "Je rent langs de troon van Jopie en pakt het boek. \nHet boek is best zwaar, dus je weet meteen dat het boek van puur goud is gemaakt \n Je hebt nu het boek te pakken, maar je moet nu nog zien te ontsnappen \nvoordat Jopie weer wakker wordt. Welke kant ga je op?",  
     ITEMS : ['gouden wiskundeboek'],
     DIRECTIONS : "Wat doe je? \nA: Je gaat naar de gang \nB: Je gaat via het raam naar buiten \nC: Je kijkt nog even rond in het lokaal",
     DEATH : 'nee',
@@ -473,7 +473,7 @@ rooms = {
   },
 
   'via het raam naar buiten' : {
-    DESCRIPTION : "De snelste weg naar buiten is natuurlijk via het raam. Je doet het raam open en kijkt even, \n‘Het valt wel mee hoe hoog dit is.’ Denk je, je tuurt iets te ver over het randje en kukelt naar beneden. \nJe komt met je bips terecht op een legoblokje. Je schreeuwt het uit van de pijn, en door de schreeuw wordt Jopie weer wakker, \nwaarna hij zelf ook springt. Uiteindelijk heeft hij je toch te pakken.",  
+    DESCRIPTION : "De snelste weg naar buiten is natuurlijk via het raam. Je doet het raam open en kijkt even, \n‘Het valt wel mee hoe hoog dit is.’ Denk je, je tuurt iets te ver over het randje en kukelt naar beneden. \nJe komt met je bips terecht op een legoblokje. \nJe schreeuwt het uit van de pijn, en door de schreeuw wordt Jopie weer wakker, \nwaarna hij zelf ook springt. Uiteindelijk heeft hij je toch te pakken.",  
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee',
@@ -481,7 +481,7 @@ rooms = {
   },
 
   'nog even rondkijken in het lokaal' : {
-    DESCRIPTION : "Je besluit om nog even rond te kijken in het rommelige lokaal van jopie. \n“Misschien liggen er nog wel waardevolle spullen die ik kan meenemen.” Denk je. \nJe ziet nog een paar wiskunde uitwerkingen liggen. Je denkt: “die kan ik nog wel voor wat geld aan bruggers verkopen.” \nOp dat moment wordt Jopie wakker, hij ziet dat zijn gouden boek weg is en dat jij in zijn lokaal \naan het rondkijken bent. Hij drukt op een knopje en je valt naar beneden. \n“En waag het niet om nog eens te komen!” roept hij je nog na. ",  
+    DESCRIPTION : "Je besluit om nog even rond te kijken in het rommelige lokaal van jopie. \n“Misschien liggen er nog wel waardevolle spullen die ik kan meenemen.” Denk je. \nJe ziet nog een paar wiskunde uitwerkingen liggen. \nJe denkt: “die kan ik nog wel voor wat geld aan bruggers verkopen.” \nOp dat moment wordt Jopie wakker, hij ziet dat zijn gouden boek weg is en dat jij in zijn lokaal \naan het rondkijken bent. Hij drukt op een knopje en je valt naar beneden. \n“En waag het niet om nog eens te komen!” roept hij je nog na. ",  
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee',
@@ -489,7 +489,7 @@ rooms = {
   },
 
   'naar de gang' : {
-    DESCRIPTION : "Je rent snel het lokaal uit, maar Jopie wordt net wakker. Hij ziet dat zijn boek weg is en dat jij in de deuropening staat. \n“Nou ja, dat had ik niet verwacht!” Zegt hij. “Maar goed, ik wil dat boek wel terug.” \nHij schraapt zijn keel. “MAAAAAARCEEEEEEEEEEEEL!” Schreeuwt hij. \nPlots komt een zeer brede man uit een ander lokaal gestormd. Je slikt puur van de schrik, \nen zet het op een rennen.",  
+    DESCRIPTION : "Je rent snel het lokaal uit, maar Jopie wordt net wakker. \nHij ziet dat zijn boek weg is en dat jij in de deuropening staat. \n“Nou ja, dat had ik niet verwacht!” Zegt hij. “Maar goed, ik wil dat boek wel terug.” \nHij schraapt zijn keel. “MAAAAAARCEEEEEEEEEEEEL!” Schreeuwt hij. \nPlots komt een zeer brede man uit een ander lokaal gestormd. Je slikt puur van de schrik, \nen zet het op een rennen.",  
     ITEMS : [],
     DIRECTIONS : "Wat doe je? \nA: “Oh jeetje, snel weg hier.” \nB: gebruik fiets \nC: gebruik wafel",
     DEATH : 'nee',
@@ -503,9 +503,9 @@ rooms = {
   },
 
   'oh jeetje, snel weg hier' : {
-    DESCRIPTION : "Het maakt niet uit hoe snel je rent, Marcel is gewoon sneller. Op een gegeven moment haalt hij je in. \nHij grijpt het boek uit je handen en vervolgens gooit hij je terug naar de hal. Volgende keer beter dan maar",  
+    DESCRIPTION : "Het maakt niet uit hoe snel je rent, Marcel is gewoon sneller. Op een gegeven moment haalt hij je in. \nHij grijpt het boek uit je handen en vervolgens gooit hij je terug naar de hal. Volgende keer beter dan maar.",  
     ITEMS : [],
-    DIRECTIONS : "Je kunt: \nA: aleen maar naar hal",
+    DIRECTIONS : "Je kunt: \nA: alleen maar naar hal",
     DEATH : 'nee',
     WIN : 'nee',
     A : 'hal',
