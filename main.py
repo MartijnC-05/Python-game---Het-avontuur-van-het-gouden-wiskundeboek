@@ -613,7 +613,7 @@ def credits():
   time.sleep(2)
   print('# -=- Beelden kijkende vrouw     Kim Roepert               #')
   time.sleep(2)
-  print('# -=- Schreuuwende Gek           Albert Huisman            #')
+  print('# -=- Schreeuwende Gek           Albert Huisman            #')
   time.sleep(2)
   print('# -=- Deur van lokaal 211        Markus van Rest           #')
   time.sleep(2)
