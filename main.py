@@ -10,8 +10,8 @@ class player:
     def __init__(self):
         self.name = ''
         self.health = 1 
-        self.location = 'gebruik wafel'
-        self.inventory = ['wafel', 'gouden wiskundeboek']
+        self.location = 'schoolplein'
+        self.inventory = []
         self.animations = 'kort'
 player = player()
 
