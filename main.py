@@ -508,7 +508,7 @@ def ontsnapping():
       ontsnapping()
 
   else:
-    print('\nBen je nou echt vergeten het boek mee te nemen? Dat is natuurlijk niet zo slim, je gaat weer terug naar de hal')
+    print('Je bent flink aan het rennen, maar ineens herriner je je dat je geen boek hebt gepakt. Terwijl je stil staat om je zonden te overdenken, ruikt het ineens naar wafel achter je. Je draait je om, en ziet dat Marcel je toch heeft ingehaald. Hij gooit je terug naar de hal.')
     print('')
     print('+=' * 55)
     print('druk op enter om verder te gaan')

@@ -430,7 +430,7 @@ rooms = {
   },
 
   'ik heb geen tijd voor dit verhaal' : {
-    DESCRIPTION : "“Ik kom hier voor het gouden boek, ik heb geen tijd voor dit verhaal.” \nJe blik dwaalt af naar 2 glimmende boeken achter hem, \neen gouden boek wat erg lijkt op wiskunde, en een zilveren boek wat lijkt op Frans. Je schraapt met je nagels over het krijtbord \nom jopie tijdelijk uit te schakelen, het geluid is zo scherp dat je zelf ook bijna was uitgeschakeld. \nJe kunt nu snel naar het boek lopen, maar welk boek pak je?",  
+    DESCRIPTION : "“Ik kom hier voor het gouden boek, ik heb geen tijd voor dit verhaal.” \nJe blik dwaalt af naar 2 glimmende boeken achter hem, \neen gouden boek wat erg lijkt op wiskunde, en een zilveren boek wat lijkt op Frans. \nJe schraapt met je nagels over het krijtbord \nom jopie tijdelijk uit te schakelen, het geluid is zo scherp dat je zelf ook bijna was uitgeschakeld. \nJe kunt nu snel naar het boek lopen, maar welk boek pak je?",  
     ITEMS : [],
     DIRECTIONS : "Wat doe je? \nA: “Ik kwam hier voor het gouden boek, ik pak het gouden boek!” \nB: “Eigenlijk is dat zilveren boek leuker...”",
     DEATH : 'nee',
@@ -459,7 +459,7 @@ rooms = {
 
 #level 5
   'gouden boek' : {
-    DESCRIPTION : "Je rent langs de troon van Jopie en pakt het boek. \nHet boek is best zwaar, dus je weet meteen dat het boek van puur goud is gemaakt \n Je hebt nu het boek te pakken, maar je moet nu nog zien te ontsnappen \nvoordat Jopie weer wakker wordt. Welke kant ga je op?",  
+    DESCRIPTION : "Je rent langs de troon van Jopie en pakt het boek. \nHet boek is best zwaar, dus je weet meteen dat het boek van puur goud is gemaakt. \n Je hebt nu het boek te pakken, maar je moet nu nog zien te ontsnappen \nvoordat Jopie weer wakker wordt. Welke kant ga je op?",  
     ITEMS : ['gouden wiskundeboek'],
     DIRECTIONS : "Wat doe je? \nA: Je gaat naar de gang \nB: Je gaat via het raam naar buiten \nC: Je kijkt nog even rond in het lokaal",
     DEATH : 'nee',
