@@ -720,8 +720,14 @@ def opties1():
       opties2()
   elif rooms[player.location][WIN] == ('ja'):
     print('\n' + '+=' * 55)
-    time.sleep(10)
-    ontsnapping()
+    print('druk op enter om verder te gaan')
+    option = input()
+    if option.lower() == (''):
+      ontsnapping()
+    else:
+      print('vul aub een geldig antwoord in')
+      opties1()
+      
   else:
     if rooms[player.location][ITEMS] == []:
       if rooms[player.location][VISITED] == ('ja'):
