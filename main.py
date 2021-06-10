@@ -11,8 +11,8 @@ class player:
     def __init__(self):
         self.name = ''
         self.health = 1 
-        self.location = 'schoolplein'
-        self.inventory = []
+        self.location = 'gebruik wafel'
+        self.inventory = ['wafel', 'gouden wiskundeboek']
         self.animations = 'kort'
 player = player()
 
@@ -481,18 +481,6 @@ def inventory():
     inventory_options()
 
 # ONTSNAPPING #
-
-ontsnappingsteksten = {
-  'ontsnapping_tekst1' : {
-    'description' : "\nJe rent snel via de trap naar beneden, maar als je naar buiten wilt rennen komt de rector om de hoek lopen." },
-  'ontsnapping_tekst2' : {
-    'description' : "\nDe rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ \nen “Ik hou van stroopwafels.” Maar je rent ontzettend snel langs hem. Je nadert de uitgang, \nmaar plotseling komt er een groepje mensen gewapend met baguettes en berets om de hoek kijken. \n“Prenez son noix!” Zegt een van hen. Ze komen op je afgerend en steken je neer met hun baguettes. \nHet is een zeer onprettige, arelaxende ervaring. "},
-  'ontsnapping_tekst3' : {
-    'description' : "\nDe rector probeert zich nog voor te stellen. Je hoort alleen maar “...Ajolt...“ en “Ik hou van stroopwafels.” \nMaar je rent ontzettend snel langs hem. Je nadert de uitgang, maar plotseling staat Jopie in de weg. \n“Dus jij denkt dat je snel weg kan komen?! Nou nou zeg, je lijkt echt op David. \nWat ben ik toch ont-zet-tend blij met jou. Helaas stopt het hier echt, \nhierna ga ik denk ik wel genieten van mijn pensioen op een mooi strand, al hou ik helemaal niet van het strand.” \nJopie maakt zijn verhaal af, maar je was al langs hem gerend. Je rent door de fietsenstalling, \nzegt Andy even gedag en rent weg naar de horizon, met het gouden wiskundeboek onder je arm."},
-  'ontsnapping_tekst4' : {
-    'description' : '\nBen je nou echt vergeten het boek mee te nemen? Dat is natuurlijk niet zo slim, je gaat weer terug naar de hal'},
-}
-
 def ontsnapping():
   os.system('clear')
   print('+=' * 55)
@@ -622,6 +610,8 @@ def credits():
   print('# -=- Feyenoord fan in de kelder Quinten de Kort           #')
   time.sleep(2)
   print('# -=- Marcel                     Marcel Thoen              #')
+  time.sleep(2)
+  print('# -=- David                      David Houtzagers          #')
   time.sleep(2)
   print('# -=- Rector                     Ajolt Elsakkers           #')
   time.sleep(0.5)
