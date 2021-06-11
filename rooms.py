@@ -261,10 +261,10 @@ rooms = {
   'ga naar het gestamp' : {
     DESCRIPTION : "Je loopt op het gestamp af. Je ziet in een lokaal een man die bruggers aan het hypnotiseren is \nmet groene koffiebonen. Uiteindelijk kom je aan bij een ander lokaal, waar je een man met korte broek ziet. \nJe herinnert je ineens een oude tegeltjes wijsheid van je oom Mark. \n'Een man zonder baard is als Deegens zonder beenhaar.' Je ziet dat zijn benen glad geschoren zijn. \nJe valt flauw van de shock, en wordt wakker bij de trap. Je ziet een briefje liggen met een code.",  
     ITEMS : ["briefje met code"],
-    DIRECTIONS : "Je kunt: \nA: alleen maar naar de hal",
+    DIRECTIONS : "Je kunt: \nA: alleen maar naar de trap",
     DEATH : 'nee',
     WIN : 'nee',
-    A : 'hal',
+    A : 'trap',
     B : 'ga naar het gestamp',
     C : 'ga naar het gestamp',
     D : 'ga naar het gestamp',
