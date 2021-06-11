@@ -107,7 +107,7 @@ rooms = {
   },
 
   'KJ centrum' : {
-    DESCRIPTION : "Je zet 1 stap in het centrum, en wordt meteen overvallen door de bruggers. \nJe doet je best om terug te vechten, maar voor elke brugger die je neerslaat \nkomen er 3 meer uit de Albert Heijn lopen. Na een langdurige strijd overleef je het niet.",  
+    DESCRIPTION : "Je zet 1 stap in het centrum. Ineens hoor je dudududuudududududu van de McDonalds vandaan komen. \nJe kijkt naar het dak en je ziet een persoon met een gigantische rugzak staan. De persoon schreeuwt iets van 'Er is hier wel fight.' Nadat de persoon dat zei, word je meteen overvallen door de bruggers. \nJe doet je best om terug te vechten, maar voor elke brugger die je neerslaat \nkomen er 3 meer uit de Albert Heijn lopen. Na een langdurige strijd overleef je het niet.",  
     DEATH : 'ja',
     WIN : 'nee',
     VISITED : 'nee',
