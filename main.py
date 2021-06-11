@@ -13,7 +13,7 @@ class player:
         self.name = ''
         self.health = 1 
         self.location = 'schoolplein'
-        self.inventory = []
+        self.inventory = ['brief van jopie']
         self.animations = 'kort'
 player = player()
 
@@ -387,7 +387,7 @@ def win_menu():
   print('# -=- Gefeliciteerd je hebt gewonnen!                      #')
   print('#                                                          #')
   print('# -=- Duur van jouw avontuur:                              #')
-  print('# -=- {:02d}:{:02d}:{:02d}'.format(e // 3600, (e % 3600 // 60), e % 60) + '                                             #')
+  print('#     {:02d}:{:02d}:{:02d}'.format(e // 3600, (e % 3600 // 60), e % 60) + '                                             #')
   print('#                                                          #')
   print('# -=- Wil je het spel opnieuw spelen?                      #')
   print('#                                                          #')
