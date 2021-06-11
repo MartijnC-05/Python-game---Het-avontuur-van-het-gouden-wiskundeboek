@@ -5,6 +5,7 @@ from time import sleep
 from rooms import *
 from logo import *
 
+start_time = time.time()
 
 ### PLAYER ###
 class player:
@@ -377,12 +378,17 @@ def death_menu():
   death_menu_selections()
 
 def win_menu():
+  e = int(time.time() - start_time)
   os.system('clear')
   print('############################################################')
   print('#                    -=- Gewonnen! -=-                     #')
   print('############################################################')
   print('#                                                          #')
   print('# -=- Gefeliciteerd je hebt gewonnen!                      #')
+  print('#                                                          #')
+  print('# -=- Duur van jouw avontuur:                              #')
+  print('# -=- {:02d}:{:02d}:{:02d}'.format(e // 3600, (e % 3600 // 60), e % 60) + '                                             #')
+  print('#                                                          #')
   print('# -=- Wil je het spel opnieuw spelen?                      #')
   print('#                                                          #')
   print('############################################################')
@@ -813,11 +819,3 @@ def move_player(move_dest):
     
 
 title_screen()
-
-### NOG DOEN! ###
-
-# - zinuitlijning en tekst verbeteren - BRENDAN
-# - while loop
-# - animaties bij win - als dat lukt...
-# - na dood/win tekst met animatie kort wachten
-# - geen win meer bij kamers, maar controleren of je in de winkamer bent
